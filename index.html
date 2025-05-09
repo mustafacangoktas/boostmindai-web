@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>BoostMindAI</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="js/component-loader.js"></script>
+    <script src="js/head-assets.js"></script>
+    <script defer>
+        window.addEventListener("DOMContentLoaded", () => {
+            loadHeadAssets({
+                title: "BoostMindAI - Revolutionizing AI",
+                description: "BoostMindAI helps you unlock your mind's potential through AI-powered tools.",
+                ogTitle: "BoostMindAI: Revolutionizing AI for Everyone",
+                ogDescription: "Join BoostMindAI today and unlock powerful tools for your cognitive development.",
+                ogImage: "assets/img/boostmind-og.jpg"  // Replace with your custom image
+            });
+
+            loadHTML("navbar", "components/navbar.html");
+            loadHTML("footer", "components/footer.html");
+        });
+    </script>
+</head>
+<body>
+<div id="navbar"></div>
+
+<main>
+    <section class="hero">
+        <h1>BoostMindAI</h1>
+        <p>Zihnini güçlendir, potansiyelini keşfet.</p>
+    </section>
+</main>
+
+<div id="footer"></div>
+
+
+<script>
+    loadHTML("navbar", "components/navbar.html");
+    loadHTML("footer", "components/footer.html");
+</script>
+</body>
+</html>

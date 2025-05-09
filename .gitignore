@@ -1,0 +1,15 @@
+# VS Code
+.vscode/
+
+# JetBrains IDE (WebStorm, IntelliJ, etc.)
+.idea/
+*.iml
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Swap / temp files
+*.swp
+*.tmp
+*.log
