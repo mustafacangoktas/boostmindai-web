@@ -1,19 +1,9 @@
-/**
- * Dynamically loads required head assets such as CSS, JS, meta tags, and more.
- *
- * @param {Object} options - Configuration object for setting meta and other assets.
- * @param {string} options.title - Title of the page to set inside <title> tag.
- * @param {string} options.description - Meta description for SEO.
- * @param {string} options.ogTitle - Open Graph title (for social media previews).
- * @param {string} options.ogDescription - Open Graph description (for social media previews).
- * @param {string} options.ogImage - Open Graph image URL for previews.
- */
 function loadHeadAssets({
                             title = "BoostMindAI",
                             description = "Empower your mind with AI.",
                             ogTitle = title,
                             ogDescription = description,
-                            ogImage = "assets/img/og-image.jpg"  // Replace with your default image
+                            ogImage = "assets/img/og-image.jpg"
                         } = {}) {
     const head = document.head;
     const body = document.body;
@@ -30,24 +20,32 @@ function loadHeadAssets({
     featherScript.defer = true;
     head.appendChild(featherScript);
 
-    // 3. Google Fonts (Roboto, Open Sans)
+    // 3. Google Fonts: Preconnect
+    const preconnect1 = document.createElement("link");
+    preconnect1.rel = "preconnect";
+    preconnect1.href = "https://fonts.googleapis.com";
+    head.appendChild(preconnect1);
+
+    const preconnect2 = document.createElement("link");
+    preconnect2.rel = "preconnect";
+    preconnect2.href = "https://fonts.gstatic.com";
+    preconnect2.crossOrigin = "true";
+    head.appendChild(preconnect2);
+
+    // 4. Google Fonts: Roboto, Open Sans, Inter
     const googleFontsLink = document.createElement("link");
     googleFontsLink.rel = "stylesheet";
-    googleFontsLink.href = "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap";
+    googleFontsLink.href =
+        "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap";
     head.appendChild(googleFontsLink);
 
-    // 4. Favicon
+    // 5. Favicon
     const faviconLink = document.createElement("link");
     faviconLink.rel = "icon";
-    faviconLink.href = "assets/img/favicon.ico";  // Replace with your actual favicon path
+    faviconLink.href = "assets/img/favicon.ico";
     head.appendChild(faviconLink);
 
-    // 5. Meta tags (SEO)
-    const metaDescription = document.createElement("meta");
-    metaDescription.name = "description";
-    metaDescription.content = description;
-    head.appendChild(metaDescription);
-
+    // 6. Meta tags
     const metaCharset = document.createElement("meta");
     metaCharset.charset = "UTF-8";
     head.appendChild(metaCharset);
@@ -57,7 +55,12 @@ function loadHeadAssets({
     metaViewport.content = "width=device-width, initial-scale=1.0";
     head.appendChild(metaViewport);
 
-    // 6. Open Graph Meta Tags (For social media sharing)
+    const metaDescription = document.createElement("meta");
+    metaDescription.name = "description";
+    metaDescription.content = description;
+    head.appendChild(metaDescription);
+
+    // 7. Open Graph Meta Tags
     const ogTitleMeta = document.createElement("meta");
     ogTitleMeta.property = "og:title";
     ogTitleMeta.content = ogTitle;
@@ -73,20 +76,21 @@ function loadHeadAssets({
     ogImageMeta.content = ogImage;
     head.appendChild(ogImageMeta);
 
-    // 7. Title tag
+    // 8. Title tag
     const titleTag = document.querySelector("title") || document.createElement("title");
     titleTag.textContent = title;
     head.appendChild(titleTag);
 
-    // 8. Bootstrap JS (via CDN) - added at the end of the body
+    // 9. Bootstrap JS
     const bootstrapScript = document.createElement("script");
     bootstrapScript.src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js";
     bootstrapScript.defer = true;
     body.appendChild(bootstrapScript);
 
-    // 9. Initialize Feather Icons after page load
-    bootstrapScript.onload = function () {
+    // 10. Feather Icons replace
+    window.onload = function () {
         if (window.feather) {
+            console.log("Feather Icons loaded successfully.");
             feather.replace();
         }
     };

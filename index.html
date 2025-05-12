@@ -1,42 +1,71 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>BoostMindAI</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/home.css">
     <script src="js/component-loader.js"></script>
     <script src="js/head-assets.js"></script>
-    <script defer>
+
+    <script>
+        loadHTML("navbar", "components/navbar.html");
+        loadHTML("footer", "components/footer.html");
+
         window.addEventListener("DOMContentLoaded", () => {
             loadHeadAssets({
                 title: "BoostMindAI - Revolutionizing AI",
                 description: "BoostMindAI helps you unlock your mind's potential through AI-powered tools.",
                 ogTitle: "BoostMindAI: Revolutionizing AI for Everyone",
                 ogDescription: "Join BoostMindAI today and unlock powerful tools for your cognitive development.",
-                ogImage: "assets/img/boostmind-og.jpg"  // Replace with your custom image
+                ogImage: "assets/img/boostmind-og.jpg"
             });
-
-            loadHTML("navbar", "components/navbar.html");
-            loadHTML("footer", "components/footer.html");
         });
     </script>
 </head>
-<body>
-<div id="navbar"></div>
+<body class="body">
+<header class="d-flex flex-column main-header">
+    <div id="navbar"></div>
+    <section class="hero container-md">
+        <div class="hero__background" aria-hidden="true"></div>
+        <img class="hero__robot user-select-none" src="assets/img/robot.webp" alt="Robot" height="150"
+             aria-hidden="true">
+        <span class="hero__chip btn btn-outline-secondary rounded-pill px-3 d-flex align-items-center justify-content-center">
+            <i data-feather="chevrons-up" style="width: 1.1rem;"></i>
+            <span class="cursor-default" style="font-size: 0.9rem">Boost Your Mood</span>
+        </span>
+        <h1 class="fs-xxl fw-bold mt-3" style="text-wrap: balance">Start Your Day Strong with AI-Powered Motivation Chat</h1>
+        <p class="text-200" style="text-wrap: pretty">Knowing you're not alone in the middle of a tough day is invaluable.
+            On this AI-powered platform,
+            you have a conversation partner who listens without judgment and supports you genuinely.
+            Take a few minutes, open up, and find new inspiration.</p>
+    </section>
+</header>
 
 <main>
-    <section class="hero">
-        <h1>BoostMindAI</h1>
-        <p>Zihnini güçlendir, potansiyelini keşfet.</p>
+    <section class="d-flex flex-column align-items-center text-center gap-1 mx-auto how-it-works">
+        <div class="container-md mt-5">
+            <div>
+                <h2 class="fs-3 fw-bold">How It Works?</h2>
+                <p class="text-300">Easily chat with AI, express yourself, and get motivated.</p>
+            </div>
+            <div>
+                <div class="d-flex flex-column flex-md-row gap-3">
+                    <div class="how-it-works__ordered-card d-flex flex-column align-items-center">
+
+                    </div>
+                    <div class="how-it-works__ordered-card d-flex flex-column align-items-center">
+
+                    </div>
+                    <div class="how-it-works__ordered-card d-flex flex-column align-items-center">
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 </main>
 
 <div id="footer"></div>
-
-
-<script>
-    loadHTML("navbar", "components/navbar.html");
-    loadHTML("footer", "components/footer.html");
-</script>
 </body>
 </html>
