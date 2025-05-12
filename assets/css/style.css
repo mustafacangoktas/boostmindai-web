@@ -176,3 +176,24 @@ h1, h2, h3, h4, h5, h6, p {
     backdrop-filter: blur(10px);
     z-index: 1000;
 }
+
+.language-dropdown-toggle[aria-expanded="true"] {
+    background: var(--bg-300);
+}
+
+.language-dropdown-chevron {
+    transition: transform 0.2s;
+}
+
+.language-dropdown-toggle[aria-expanded="true"] .language-dropdown-chevron {
+    transform: rotate(180deg);
+}
+
+.footer__links a {
+    color: var(--text-200) !important;
+    transition: all 0.2s;
+}
+
+.footer__links a:hover {
+    color: var(--text-50) !important;
+}

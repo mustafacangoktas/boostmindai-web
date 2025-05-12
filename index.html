@@ -23,7 +23,7 @@
         });
     </script>
 </head>
-<body class="body">
+<body class="body" data-bs-theme="dark">
 <header class="d-flex flex-column main-header">
     <div id="navbar"></div>
     <section class="hero container-md">
@@ -118,9 +118,10 @@
         </div>
     </section>
 
-    <section class="container-md d-flex align-items-center gap-6 justify-content-between mt-11 flex-column flex-md-row">
+    <section
+            class="container-md d-flex align-items-center gap-6 justify-content-between mt-11 flex-column-reverse flex-lg-row">
         <div>
-            <div>
+            <div class="text-center text-md-start">
                 <h2 class="fs-3 fw-bold">
                     Always With You Everywhere
                 </h2>
@@ -139,12 +140,8 @@
             </div>
         </div>
 
-        <div>
-            <img src="/assets/img/phone-messages.svg" alt="">
-        </div>
+        <img src="/assets/img/phone-messages.svg" alt="Phone Messages" class="section__image">
     </section>
-
-
 </main>
 
 <div id="footer"></div>

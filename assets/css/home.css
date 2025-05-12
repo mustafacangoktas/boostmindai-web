@@ -142,6 +142,12 @@
     padding: 25px;
 }
 
+@media screen and (max-width: 768px) {
+    .section__image {
+        width: 100%;
+    }
+}
+
 @media screen and (max-width: 576px) {
     .how-it-works__ordered-card {
         width: 100%;

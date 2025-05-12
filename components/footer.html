@@ -1,2 +1,40 @@
-<footer class="footer">
+<footer class="mt-10 mb-3 container-md">
+    <div style="background-color: var(--bg-300);" class="px-4 py-3 rounded-3">
+        <div class="d-flex flex-column flex-md-row gap-4 justify-content-between align-items-md-center">
+            <a class="d-flex align-items-center" href="/">
+                <img src="/assets/img/logo.webp" alt="Logo" width="40" height="40" class="me-2">
+                <span class="fs-5 fw-bold">BoostMindAI</span>
+            </a>
+
+            <ul class="d-flex flex-column flex-md-row gap-3 gap-md-4 m-0 justify-content-center flex-wrap list-unstyled footer__links">
+                <li>
+                    <a href="/privacy.html">Privacy Policy</a>
+                </li>
+                <li>
+                    <a href="/terms.html">Terms of Service</a>
+                </li>
+                <li>
+                    <a href="/cookies.html">Cookies</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="d-flex flex-column-reverse flex-md-row gap-4 justify-content-between mt-4 align-items-md-center">
+            <p class="text-md-center text-300 m-0">
+                &copy; 2025 BoostMindAI. All rights reserved.
+            </p>
+
+            <div class="dropdown">
+                <div class="d-flex align-items-center gap-2 language-dropdown-toggle"
+                     id="languageDropdown" role="button"
+                     data-bs-toggle="dropdown" aria-expanded="false">
+                    <span>Türkçe</span>
+                    <i data-feather="chevron-down" class="language-dropdown-chevron"></i>
+                </div>
+                <ul class="dropdown-menu language-dropdown-menu" aria-labelledby="languageDropdown">
+                    <li><a class="dropdown-item" href="#">English</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </footer>
