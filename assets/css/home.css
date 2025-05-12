@@ -80,10 +80,80 @@
 }
 
 .how-it-works__ordered-card {
+    position: relative;
     background: linear-gradient(to bottom, rgba(150, 84, 244, 0.35) 0%, rgba(87, 51, 146, 0.35) 50%, rgba(164, 59, 235, 0.35) 100%);
     border-radius: 20px;
     padding: 20px;
     margin: 0 auto;
     width: 390px;
     height: 225px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.how-it-works__ordered-card > div, .how-it-works__ordered-card > h3 {
+    position: relative;
+    z-index: 2;
+    max-width: 70%;
+}
+
+.how-it-works__ordered-card::before {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 85%;
+    height: 80%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.how-it-works__circle-badge, .feature__card-icon {
+    width: 36px;
+    height: 36px;
+    background: #6B40DC;
+    color: #fff;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.feature__card-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.feature__card {
+    background: var(--bg-200);
+    border-radius: 20px;
+    padding: 25px;
+    min-width: 629px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.feature__card h3 {
+    margin: 0;
+}
+
+.customer__card {
+    background: var(--bg-300);
+    border-radius: 20px 20px 20px 0;
+    padding: 25px;
+}
+
+@media screen and (max-width: 576px) {
+    .how-it-works__ordered-card {
+        width: 100%;
+        height: 200px;
+    }
+
+    .how-it-works__ordered-card > div {
+        max-width: 90%;
+    }
+
+    .feature__card {
+        width: fit-content;
+        min-width: 0;
+    }
 }

@@ -64,6 +64,11 @@
     color: var(--text-900);
 }
 
+.fs-sm {
+    font-size: 1.15rem; /* 18px */
+    line-height: 1.4;
+}
+
 .fs-xxl {
     font-size: clamp(2rem, 2vw + 1rem, 3rem); /* 24px */
     line-height: 1.2;
@@ -86,6 +91,49 @@
     margin-top: 6rem !important;
 }
 
+.mt-9 {
+    margin-top: 8rem !important;
+}
+
+.mt-10 {
+    margin-top: 10rem !important;
+}
+
+.mt-11 {
+    margin-top: 14rem !important;
+}
+
+.mt-12 {
+    margin-top: 20rem !important;
+}
+
+.gap-6 {
+    gap: 4rem !important;
+}
+
+.gap-7 {
+    gap: 5rem !important;
+}
+
+.gap-8 {
+    gap: 6rem !important;
+}
+
+.gap-9 {
+    gap: 8rem !important;
+}
+
+.gap-10 {
+    gap: 10rem !important;
+}
+
+.gap-11 {
+    gap: 14rem !important;
+}
+
+.gap-12 {
+    gap: 20rem !important;
+}
 
 .glow {
     width: 100%;
@@ -126,4 +174,5 @@ h1, h2, h3, h4, h5, h6, p {
     position: fixed !important;
     top: 0 !important;
     backdrop-filter: blur(10px);
+    z-index: 1000;
 }
