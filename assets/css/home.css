@@ -30,6 +30,14 @@
     overflow: hidden;
 }
 
+@media screen and (max-width: 768px) {
+    .main-header .hero__background {
+        width: 100%;
+        height: 100%;
+        margin: auto;
+    }
+}
+
 .main-header .hero__robot {
     position: absolute;
     background-size: cover;
@@ -146,7 +154,6 @@
     background: var(--bg-200);
     border-radius: 20px;
     padding: 20px 15px;
-    min-width: 629px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     cursor: pointer;
     transition: all 0.3s ease;
@@ -171,8 +178,13 @@
     opacity: 0;
 }
 
+.faq-answer p {
+    margin: 0;
+    padding: 0;
+}
+
 .faq-item.active .faq-answer {
-    max-height: 200px;
+    max-height: 260px;
     padding: 15px 20px;
     opacity: 1;
     border: 1px solid rgba(255, 255, 255, 0.05);
