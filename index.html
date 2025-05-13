@@ -142,8 +142,81 @@
 
         <img src="/assets/img/phone-messages.svg" alt="Phone Messages" class="section__image">
     </section>
+
+    <section
+            class="container-md d-flex align-items-center gap-6 justify-content-between mt-11 flex-column-reverse flex-lg-row">
+        <img src="/assets/img/privacy.svg" alt="Privacy" class="section__image">
+
+        <div>
+            <div class="text-center text-md-start">
+                <h2 class="fs-3 fw-bold">
+                    Your Data is Safe With Us
+                </h2>
+                <p class="text-300">
+                    Only you know what you share and how you feel. BoostMindAI never pushes your boundaries; what
+                    belongs to you always stays with you.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <div class="d-flex gap-3 mt-3 faq-card align-items-center justify-content-between">
+                    <span>Does BoostMindAI store the data I share?</span>
+                    <i data-feather="chevron-right" class="faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, BoostMindAI stores your data securely in our systems to enhance your experience. All data is
+                        protected with industry-standard security protocols and is never shared with third parties. You
+                        can delete your chat history at any time from your account settings.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="d-flex gap-3 mt-3 faq-card align-items-center justify-content-between">
+                    <span>Can I delete my chat history?</span>
+                    <i data-feather="chevron-right" class="faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, you can delete your entire chat history anytime from your account settings. At the end of
+                        each chat, a delete option is also provided. Deleted data is completely removed from the system
+                        and cannot be recovered.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="d-flex gap-3 mt-3 faq-card align-items-center justify-content-between">
+                    <span>How secure is BoostMindAI?</span>
+                    <i data-feather="chevron-right" class="faq-icon"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>BoostMindAI is protected by industry-standard security protocols. All communication is encrypted
+                        and your data is never shared with third parties. Our system is secured with regular security
+                        updates and audits.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 </main>
 
 <div id="footer"></div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const card = item.querySelector('.faq-card');
+
+            card.addEventListener('click', () => {
+                item.classList.toggle('active');
+
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+    });
+</script>
 </body>
 </html>
