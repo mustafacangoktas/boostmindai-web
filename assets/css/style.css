@@ -1,25 +1,25 @@
 :root {
-    --bg-100: #5900D9;
-    --bg-200: #250D4E;
-    --bg-300: #19122E;
-    --bg-400: #0E0821;
-    --bg-500: #08031d;
-    --bg-600: #060013;
+    --bg-100: #824DFF; /* Morun daha sıcak ve canlı tonu */
+    --bg-200: #4F2C97; /* Daha koyu ama yumuşak geçişli mor */
+    --bg-300: #321F61; /* Vurgulu ama dengeli koyu ton */
+    --bg-400: #231647; /* bg-500'e doğal geçiş */
+    --bg-500: #08031d; /* Sabit */
+    --bg-600: #050014; /* bg-500'e gölge derinliği */
 
-    --stroke-100: #7A42CB;
-    --stroke-200: #360083;
-    --stroke-300: #181131;
+    --stroke-100: #A073FF; /* Doygun ama yumuşak vurgu rengi */
+    --stroke-200: #5C2FA1; /* bg-200'ye yakın */
+    --stroke-300: #35205A; /* Kenar çizgilerde daha az dikkat çekici */
 
-    --text-50: #F6F5F7;
-    --text-100: #E2E1E7;
-    --text-200: #D4D3DB;
-    --text-300: #C0BFCA;
-    --text-400: #B4B2C0;
-    --text-500: #A19FB0;
-    --text-600: #9391A0;
-    --text-700: #72717D;
-    --text-800: #595761;
-    --text-900: #44434A;
+    --text-50: #F3F0FA;
+    --text-100: #E0D8F5;
+    --text-200: #CBBDEB;
+    --text-300: #B39EDE;
+    --text-400: #9F86D1;
+    --text-500: #8871B5;
+    --text-600: #6F5D96;
+    --text-700: #574874;
+    --text-800: #403454;
+    --text-900: #2B2339;
 
     --navbar-height: 84px;
 }
@@ -154,7 +154,7 @@ body, html {
 .body {
     margin: 0;
     padding: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     background-color: var(--bg-500);
     color: var(--text-50);
 }
@@ -196,4 +196,12 @@ h1, h2, h3, h4, h5, h6, p {
 
 .footer__links a:hover {
     color: var(--text-50) !important;
+}
+
+.form-control:focus {
+    color: var(--text-50) !important;
+    background-color: var(--bg-300) !important;
+    border-color: var(--stroke-300) !important;
+    outline: 0 !important;
+    box-shadow: none !important;
 }

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BoostMindAI</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/chat.css">
+    <script src="js/component-loader.js"></script>
+    <script src="js/head-assets.js"></script>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            loadHeadAssets({
+                title: "BoostMindAI - Revolutionizing AI",
+                description: "BoostMindAI helps you unlock your mind's potential through AI-powered tools.",
+                ogTitle: "BoostMindAI: Revolutionizing AI for Everyone",
+                ogDescription: "Join BoostMindAI today and unlock powerful tools for your cognitive development.",
+                ogImage: "assets/img/boostmind-og.jpg"
+            });
+        });
+    </script>
+</head>
+<body class="body" data-bs-theme="dark">
+<div class="glow" aria-hidden="true"></div>
+<nav class="d-flex justify-content-between align-items-center py-3">
+    <div class="container-fluid d-flex align-items-center justify-content-between">
+        <button class="sidebar-burger d-md-none" aria-label="Open sidebar">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <a class="align-items-center d-none d-md-flex" href="/">
+            <img src="/assets/img/logo.webp" alt="Logo" width="40" height="40" class="me-2">
+            <span class="fs-5 fw-bold">BoostMindAI</span>
+        </a>
+        <div class="d-flex align-items-center gap-3 ">
+            <div style="position: relative; width: 100%;" class="d-none d-md-block">
+                <i data-feather="search" class="input-icon"></i>
+                <input type="text" name="search" id="search" placeholder="Search..."
+                       class="form-control search-input"
+                       aria-label="Search">
+            </div>
+            <div class="user-dropdown">
+                <div class="dropdown">
+                    <button class="btn btn-link p-0 user-menu-toggle d-flex align-items-center gap-1" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%;">
+                        <span class="d-flex flex-column align-items-end">
+                            <span>Mustafa Can Göktaş</span>
+                            <span class="text-200">@mustqfacan</span>
+                        </span>
+                        <img src="/assets/img/profile.jpg" alt="Profile Picture" width="48" height="48"
+                             class="ms-2 rounded-circle">
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li class="d-flex align-items-center dropdown-item gap-1 cursor-pointer">
+                            <i data-feather="settings" style="width: 18px; height: 18px;"></i>
+                            <a href="#">Ayarlar</a>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider my-1">
+                        </li>
+                        <li class="d-flex align-items-center dropdown-item gap-1 cursor-pointer">
+                            <i data-feather="log-out" style="width: 18px; height: 18px;"></i>
+                            <a href="#">Çıkış Yap</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid d-flex flex-column flex-md-row gap-4">
+    <div class="sidebar-overlay d-md-none"></div>
+    <div class="sidebar">
+        <button class="sidebar-close d-md-none">
+            <i data-feather="x" style="width: 24px; height: 24px;"></i>
+        </button>
+        <h3 class="fs-5">Geçmiş Sohbetler</h3>
+        <nav class="sidebar__nav">
+            <ul class="list-unstyled">
+                <li class="chat-history-item sidebar__chat-item">
+                    <div class="d-flex align-items-center sidebar__chat-link">
+                        <a href="#" class="flex-grow-1 text-decoration-none">
+                            <div class="sidebar__chat-title">Bugün, 1 Mayıs</div>
+                            <div class="sidebar__chat-desc text-300">Kısa özet...</div>
+                        </a>
+                        <div class="sidebar__chat-actions">
+                            <div class="dropdown">
+                                <button class="btn btn-link p-0 sidebar__chat-menu" type="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i data-feather="more-horizontal"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-start">
+                                    <li class="d-flex align-items-center dropdown-item gap-1 cursor-pointer">
+                                        <i data-feather="trash-2" style="width: 18px; height: 18px;"></i>
+                                        <a class="" href="#">Sil</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="chat-history-item sidebar__chat-item active">
+                    <div class="d-flex align-items-center sidebar__chat-link">
+                        <a href="#" class="flex-grow-1 text-decoration-none">
+                            <div class="sidebar__chat-title">Dün, 30 Nisan</div>
+                            <div class="sidebar__chat-desc text-300">Kısa özet...</div>
+                        </a>
+                        <div class="sidebar__chat-actions">
+                            <div class="dropdown">
+                                <button class="btn btn-link p-0 sidebar__chat-menu" type="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i data-feather="more-horizontal"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-start">
+                                    <li class="d-flex align-items-center dropdown-item gap-1 cursor-pointer">
+                                        <i data-feather="trash-2" style="width: 18px; height: 18px;"></i>
+                                        <a class="" href="#">Sil</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div style="" class="d-flex align-items-center justify-content-start gap-2 favorites__button">
+            <div class="d-flex align-items-center justify-content-center rounded-circle border border-2 border-white"
+                 style="width: 38px; height: 38px;">
+                <i data-feather="star" style="stroke-width: 2.5; width: 22px; height: 22px;"></i>
+            </div>
+            <div>
+                <h3 style="font-size: 1rem;" class="m-0 mb-1">Favorilerim</h3>
+                <p class="text-200 m-0" style="font-size: 0.8rem;">
+                    Favorilediğiniz mesajları görüntüleyin.
+                </p>
+            </div>
+        </div>
+    </div>
+    <main class="d-flex flex-column justify-content-between flex-grow-1">
+        <div style="overflow-y: auto; height: 100%;">
+            <header class="chat__header">
+                <h2 class="fs-6 fw-bold">Bugün, 1 Mayıs</h2>
+                <div class="d-flex flex-row align-items-center gap-3 mt-4 chat__header-title">
+                    <div class="chat__header-avatar">
+                        <img src="/assets/img/robot-head.png" alt="Robot Head" height="40">
+                    </div>
+                    <h1 class="fs-3 fw-bold m-0">Merhaba! Bugün kendini nasıl hissediyorsun?</h1>
+                </div>
+            </header>
+
+            <section class="chat__messages">
+                <div class="chat__message__wrapper chat__message__wrapper--user">
+                    <div class="chat__message">
+                        <div class="chat__message__content">
+                            <p class="m-0">Bugün biraz yorgunum.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat__message__wrapper chat__message__wrapper--assistant">
+                    <div class="chat__message">
+                        <div class="chat__message__content">
+                            <p class="m-0">Üzgünüm, kendini kötü hissettiğini duymak beni üzdü. İnsanlar zaman zaman
+                                kötü hisseder ve bu çok normaldir.
+                                <br><br>Unutma, yalnız değilsin ve bu hislerini yaşamak güç olabilir. Eğer daha fazla
+                                destek ihtiyacın varsa, güvenebileceğin bir insanla konuşmayı veya profesyonel yardım
+                                almayı düşünebilirsin.
+                                <br><br>Sana iyi şeyler gelmesini diliyorum.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="message-actions">
+                        <button class="btn btn-link p-1 message-action-btn copy-btn" title="Kopyala">
+                            <i data-feather="copy" style="width: 18px; height: 18px;"></i>
+                        </button>
+                        <button class="btn btn-link p-1 message-action-btn star-btn" title="Favorilere Ekle">
+                            <i data-feather="star" style="width: 18px; height: 18px;"></i>
+                        </button>
+                        <button class="btn btn-link p-1 message-action-btn regenerate-btn"
+                                title="Yeniden Oluştur">
+                            <i data-feather="refresh-cw" style="width: 18px; height: 18px;"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <form action="">
+            <div class="d-flex flex-row align-items-center justify-content-md-center gap-3 my-4"
+                 style="overflow-x: auto; padding: 0 1rem;">
+                <button type="button" class="btn quick-reply-button">Çok stresli hissediyorum</button>
+                <button type="button" class="btn quick-reply-button">Huzursuz hissediyorum</button>
+                <button type="button" class="btn quick-reply-button">Kendimi yalnız hissediyorum</button>
+            </div>
+            <div class="chat__input__wrapper d-flex align-items-center gap-3">
+                <label class="d-flex flex-grow-1">
+                    <textarea class="form-control chat-textarea message-input" placeholder="Mesajınızı yazın..."
+                              rows="1"></textarea>
+                </label>
+                <button type="submit" class="btn btn-primary send-button">
+                    <i data-feather="send"
+                       style="width: 18px; height: 18px; margin-right: 6px; vertical-align: -3px;"></i>
+                    <span class="d-none d-md-inline">Gönder</span>
+                </button>
+            </div>
+        </form>
+    </main>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Sidebar toggle functionality for mobile
+        const sidebarBurger = document.querySelector('.sidebar-burger');
+        const sidebar = document.querySelector('.sidebar');
+        const overlay = document.querySelector('.sidebar-overlay');
+        const sidebarClose = document.querySelector('.sidebar-close');
+
+        if (sidebarBurger && sidebar && overlay) {
+            sidebarBurger.addEventListener('click', function () {
+                sidebar.classList.toggle('active');
+                overlay.classList.toggle('active');
+                document.body.classList.toggle('sidebar-open');
+            });
+
+            overlay.addEventListener('click', function () {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('sidebar-open');
+            });
+
+            if (sidebarClose) {
+                sidebarClose.addEventListener('click', function () {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.classList.remove('sidebar-open');
+                });
+            }
+        }
+
+        const dropdownButtons = document.querySelectorAll('.sidebar__chat-menu');
+
+        dropdownButtons.forEach(button => {
+            button.addEventListener('show.bs.dropdown', function () {
+                this.closest('.sidebar__chat-item').classList.add('dropdown-active');
+            });
+
+            button.addEventListener('hidden.bs.dropdown', function () {
+                this.closest('.sidebar__chat-item').classList.remove('dropdown-active');
+            });
+        });
+    });
+</script>
+</body>
+</html>

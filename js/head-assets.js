@@ -32,11 +32,11 @@ function loadHeadAssets({
     preconnect2.crossOrigin = "true";
     head.appendChild(preconnect2);
 
-    // 4. Google Fonts: Roboto, Open Sans, Inter
+    // 4. Google Fonts: Inter
     const googleFontsLink = document.createElement("link");
     googleFontsLink.rel = "stylesheet";
     googleFontsLink.href =
-        "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap";
+        "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap";
     head.appendChild(googleFontsLink);
 
     // 5. Favicon
