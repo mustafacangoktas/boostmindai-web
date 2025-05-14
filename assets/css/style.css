@@ -1,14 +1,14 @@
 :root {
-    --bg-100: #824DFF; /* Morun daha sıcak ve canlı tonu */
-    --bg-200: #4F2C97; /* Daha koyu ama yumuşak geçişli mor */
-    --bg-300: #321F61; /* Vurgulu ama dengeli koyu ton */
-    --bg-400: #231647; /* bg-500'e doğal geçiş */
-    --bg-500: #08031d; /* Sabit */
-    --bg-600: #050014; /* bg-500'e gölge derinliği */
+    --bg-100: #824DFF;
+    --bg-200: #4F2C97;
+    --bg-300: #321F61;
+    --bg-400: #231647;
+    --bg-500: #08031d;
+    --bg-600: #050014;
 
-    --stroke-100: #A073FF; /* Doygun ama yumuşak vurgu rengi */
-    --stroke-200: #5C2FA1; /* bg-200'ye yakın */
-    --stroke-300: #35205A; /* Kenar çizgilerde daha az dikkat çekici */
+    --stroke-100: #A073FF;
+    --stroke-200: #5C2FA1;
+    --stroke-300: #35205A;
 
     --text-50: #F3F0FA;
     --text-100: #E0D8F5;

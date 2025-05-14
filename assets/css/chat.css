@@ -226,22 +226,20 @@ main {
     transition: background 0.2s;
 }
 
-/* Normal item */
 .sidebar__chat-item {
     background: transparent;
 }
 
 .sidebar__chat-item:hover, .sidebar__chat-item.dropdown-active {
-    background: rgba(50, 31, 97, 0.5); /* Lighter version of bg-300 */
+    background: rgba(50, 31, 97, 0.5);
 }
 
-/* Active item */
 .sidebar__chat-item.active {
     background: var(--bg-300);
 }
 
 .sidebar__chat-item.active:hover {
-    background: var(--bg-300); /* Keep the same color on hover */
+    background: var(--bg-300);
 }
 
 .sidebar__chat-title {
@@ -276,7 +274,6 @@ main {
     vertical-align: middle;
 }
 
-/* Ensure dropdown appears correctly */
 .sidebar__chat-actions .dropdown-menu {
     background: var(--bg-400);
     border: 1px solid var(--stroke-300);
@@ -306,17 +303,14 @@ main {
     color: #fff !important;
 }
 
-/* Hide actions by default */
 .sidebar__chat-actions {
     display: none;
 }
 
-/* Show on hover */
 .sidebar__chat-item:hover .sidebar__chat-actions {
     display: block;
 }
 
-/* Keep visible when dropdown is open */
 .sidebar__chat-item.dropdown-active .sidebar__chat-actions {
     display: block;
 }
