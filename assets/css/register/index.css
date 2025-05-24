@@ -1,0 +1,90 @@
+.auth-card .form-control {
+    background-color: var(--bg-300);
+    color: var(--text-50) !important;
+    border: 2px solid transparent;
+    border-radius: 0.5rem;
+    transition: border-color 0.2s;
+}
+
+.auth-card .form-control:focus {
+    border-color: var(--stroke-200) !important;
+    background-color: var(--bg-300);
+    color: var(--text-50);
+}
+
+.auth-card .form-check-label {
+    color: var(--text-300);
+}
+
+.auth-card .form-floating label {
+    color: var(--text-200);
+    --bs-body-color-rgb: 211, 207, 216 !important;
+}
+
+.auth-card .form-floating label:after {
+    background-color: transparent !important;
+}
+
+.auth-card .btn-primary {
+    background-color: var(--bg-100);
+    border: none;
+    color: var(--text-50);
+    font-weight: 600;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s;
+}
+
+.auth-card .btn-primary:hover {
+    background-color: var(--stroke-100);
+}
+
+.auth-card a {
+    color: var(--text-100);
+    text-decoration: underline;
+}
+
+.auth-title {
+    font-size: 2.25rem;
+    font-weight: bold;
+    color: var(--text-50);
+    text-align: center;
+}
+
+.auth-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.auth-card {
+    flex: 1 1 auto;
+}
+
+.auth-bg {
+    width: 45%;
+    position: relative;
+    z-index: -3;
+    right: 5%;
+    user-select: none;
+    pointer-events: none;
+    flex: 1 1 auto;
+}
+
+
+@media screen and (max-width: 1024px) {
+    .auth-bg {
+        width: 100%;
+        right: 0;
+        top: 0;
+    }
+    .auth-container {
+        flex-direction: column-reverse;
+    }
+    .auth-card {
+        width: 100%;
+        padding: 1rem;
+    }
+}

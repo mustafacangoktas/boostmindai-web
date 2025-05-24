@@ -1,0 +1,11 @@
+@import url("./header.css");
+@import url("./how-it-works.css");
+@import url("./privacy-faq.css");
+@import url("./testimonial.css");
+
+
+@media screen and (max-width: 768px) {
+    .section__image {
+        width: 100%;
+    }
+}

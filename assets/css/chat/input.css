@@ -1,0 +1,44 @@
+.chat-textarea {
+    resize: none;
+    overflow-y: hidden;
+    min-height: 2.5rem;
+    max-height: calc(2.5rem * 5); /* 5 rows */
+}
+
+.quick-reply-button {
+    min-width: 200px !important;
+    padding: 0.7rem 1.5rem !important;
+    border-radius: 40px !important;
+    --bs-btn-bg: var(--bg-300) !important;
+    --bs-btn-color: var(--text-50) !important;
+    --bs-btn-border-color: var(--stroke-300) !important;
+    --bs-btn-border-width: 2px !important;
+    --bs-btn-hover-bg: rgba(89, 0, 217, 0.8) !important;
+    --bs-btn-hover-color: var(--text-50) !important;
+    --bs-btn-hover-border-color: transparent !important;
+    --bs-btn-active-bg: var(--stroke-200) !important;
+    --bs-btn-active-color: var(--text-50) !important;
+    --bs-btn-active-border-color: var(--stroke-200) !important;
+}
+
+.message-input {
+    padding: 0.7rem 1rem !important;
+    --bs-body-bg: var(--bg-400) !important;
+    --bs-body-color: var(--text-50) !important;
+    --bs-border-color: var(--stroke-300) !important;
+    --bs-border-width: 2px !important;
+}
+
+.send-button {
+    padding: 0.7rem 1.5rem !important;
+    height: 100% !important;
+    --bs-btn-bg: var(--bg-100) !important;
+    --bs-btn-color: var(--text-50) !important;
+    --bs-btn-border-color: transparent !important;
+    --bs-btn-hover-bg: rgba(130, 77, 255, 0.8) !important;
+    --bs-btn-hover-color: var(--text-50) !important;
+    --bs-btn-hover-border-color: transparent !important;
+    --bs-btn-active-bg: rgba(130, 77, 255, 0.6) !important;
+    --bs-btn-active-color: var(--text-50) !important;
+    --bs-btn-active-border-color: var(--stroke-200) !important;
+}

@@ -1,0 +1,96 @@
+.chat__header-avatar {
+    position: relative;
+    border-radius: 50%;
+    border: 2px solid var(--stroke-300);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+}
+
+.chat__header-avatar img {
+    position: absolute;
+    top: 6px;
+}
+
+.chat__header-title h1 {
+    max-width: 520px;
+}
+
+.input-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-300);
+    pointer-events: none;
+}
+
+.search-input {
+    --bs-body-bg: var(--bg-300) !important;
+    --bs-body-color: var(--text-50) !important;
+    --bs-border-color: var(--stroke-300) !important;
+    --bs-border-width: 2px !important;
+    padding-left: 2.7rem !important;
+}
+
+.user-dropdown span {
+    width: max-content;
+}
+
+.user-dropdown .user-menu-toggle {
+    background: transparent;
+    text-decoration: none;
+    color: var(--text-50) !important;
+    transition: opacity 0.2s;
+}
+
+.user-dropdown .user-menu-toggle:hover {
+    opacity: 0.9;
+}
+
+.user-dropdown .dropdown-menu {
+    background: var(--bg-400);
+    border: 1px solid var(--stroke-300);
+    border-radius: 0.5rem;
+    padding: 0.5rem !important;
+    margin-top: 0.5rem;
+}
+
+.user-dropdown .dropdown-item {
+    color: var(--text-200) !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.user-dropdown .dropdown-item:hover {
+    background-color: var(--bg-300);
+}
+
+.user-dropdown .dropdown-item a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.user-dropdown .dropdown-item:last-child {
+    color: #ff4d4f !important;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.user-dropdown .dropdown-item:last-child i,
+.user-dropdown .dropdown-item:last-child a {
+    color: inherit;
+}
+
+.user-dropdown .dropdown-item:last-child:hover {
+    background-color: #ff4d4f !important;
+    color: #fff !important;
+}
+
+.user-dropdown .dropdown-divider {
+    border-top: 1px solid var(--stroke-300);
+    margin: 0.25rem 0;
+}

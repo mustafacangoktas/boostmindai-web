@@ -1,0 +1,70 @@
+# IDE and Editor files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+
+# PHP specific
+vendor/
+composer.lock
+composer.phar
+*.log
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Node.js (if used for frontend)
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+package-lock.json
+
+# Dependency directories
+bower_components/
+
+# Build directories
+dist/
+build/
+public/build/
+public/hot/
+
+# Cache and logs
+/logs/
+*.cache
+*.log
+cache/
+tmp/
+temp/
+
+# Database
+*.sqlite
+*.sqlite3
+*.db
+
+# Backup files
+*.bak
+*.swp
+*~
+
+# Local configuration files
+config.local.php
+database.local.php
+settings.local.php
+
+# System files that shouldn't be in the repo
+.htaccess.local
+.htpasswd
+
+# User uploaded content (if applicable)
+/uploads/
+/media/
+/user-content/
+
+# Testing
+/phpunit.xml
+/tests/coverage/
