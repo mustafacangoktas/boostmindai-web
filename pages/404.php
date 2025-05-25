@@ -1,3 +1,7 @@
+<?php
+http_response_code(404);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +10,6 @@
     <title>Document</title>
 </head>
 <body>
-    BULUNAMADI
+BULUNAMADI
 </body>
 </html>

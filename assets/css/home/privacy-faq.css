@@ -19,7 +19,7 @@
 .privacy-faq__answer {
     max-height: 10px;
     overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.4s ease;
+    transition: max-height 0.4s ease, padding-bottom 0.4s ease, padding-top 0.4s ease;
     background: var(--bg-300);
     border-radius: 0 0 20px 20px;
     margin-top: -5px;

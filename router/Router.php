@@ -64,7 +64,17 @@ class Router
     private function tryDispatchRoute($method, $uri): bool
     {
         foreach ($this->routes[$method] ?? [] as $route) {
-            $pattern = "#^" . preg_replace('#\{([a-zA-Z0-9_]+)\}#', '(?P<\1>[^/]+)', $route['pattern']) . "$#";
+            // Support {param:regex} as well as {param}
+            $pattern = preg_replace_callback(
+                '#\{([a-zA-Z0-9_]+)(?::([^}]+))?\}#',
+                function ($matches) {
+                    $name = $matches[1];
+                    $regex = $matches[2] ?? '[^/]+';
+                    return "(?P<$name>$regex)";
+                },
+                $route['pattern']
+            );
+            $pattern = "#^" . $pattern . "$#";
             if (preg_match($pattern, $uri, $params)) {
                 call_user_func_array($route['callback'], array_filter($params, 'is_string', ARRAY_FILTER_USE_KEY));
                 return true;
