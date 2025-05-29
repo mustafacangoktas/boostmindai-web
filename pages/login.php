@@ -1,12 +1,17 @@
 <?php
 include 'includes/common/head.php';
+
+if (isAuthenticated()) {
+    header('Location: /chat');
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <?php renderHead(
         "Login - BoostMindAI",
-        "Login to your BoostMindAI account to continue your motivational journey.",
+        "Login to your BoostMindAI account.",
         "Login, Sign In, AI, Motivation, Chat"
     ); ?>
     <link rel="stylesheet" href="/assets/css/auth/index.css">
@@ -28,26 +33,29 @@ include 'includes/common/head.php';
             <p class="text-100 mb-4 mt-3" style="text-align: center; margin-bottom: 2rem; text-wrap: pretty">
                 <?php echo t('login_subtitle'); ?>
             </p>
-            <form id="loginForm">
+
+            <form id="loginForm" novalidate>
                 <div class="mb-4 form-floating">
-                    <input type="email" name="email" id="loginEmail" class="form-control" placeholder=" "/>
+                    <input type="email" id="loginEmail" class="form-control" name="email" placeholder=" " required/>
                     <label for="loginEmail">
                         <?php echo t('login_email'); ?>
                     </label>
+                    <div class="invalid-feedback"><?php echo t('login_email_invalid'); ?></div>
                 </div>
 
                 <div class="mb-4 form-floating">
-                    <input type="password" name="password" id="loginPassword" class="form-control"
-                           placeholder="Password"/>
+                    <input type="password" id="loginPassword" name="password" class="form-control"
+                           placeholder="Password" required minlength="8" maxlength="32"/>
                     <label for="loginPassword">
                         <?php echo t('login_password'); ?>
                     </label>
+                    <div class="invalid-feedback"><?php echo t('login_password_invalid'); ?></div>
                 </div>
 
-                <div class="form-check mb-4">
-                    <input class="form-check-input me-2" type="checkbox" value="" id="rememberMe" name="rememberMe"/>
+                <div class="mb-4 form-check">
+                    <input type="checkbox" class="form-check-input" id="rememberMe" name="remember_me">
                     <label class="form-check-label" for="rememberMe">
-                        <?php echo t('login_remember'); ?>
+                        <?php echo t('login_remember_me'); ?>
                     </label>
                 </div>
 
@@ -56,67 +64,59 @@ include 'includes/common/head.php';
                         <?php echo t('login_button'); ?>
                     </button>
                 </div>
-                <div class="mt-3 text-center">
-                    <span class="text-200">
-                        <?php echo t('login_no_account'); ?>
-                        <a href="/register">
-                            <?php echo t('login_register_link'); ?>
-                        </a></span>
-                </div>
             </form>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    const loginForm = document.getElementById('loginForm');
+                    const captchaModal = new bootstrap.Modal(document.getElementById('captchaModal'));
+                    let formData = null;
+
+                    loginForm.addEventListener('submit', function (e) {
+                        e.preventDefault();
+                        loginForm.classList.add('was-validated');
+                        if (!loginForm.checkValidity()) {
+                            return;
+                        }
+                        formData = new FormData(loginForm);
+                        captchaModal.show();
+                    });
+
+                    document.getElementById('verifyCaptchaBtn').addEventListener('click', function () {
+                        const response = grecaptcha.getResponse();
+                        if (!response) {
+                            document.getElementById('captcha-error').style.display = 'block';
+                            setTimeout(() => {
+                                document.getElementById('captcha-error').style.display = 'none';
+                            }, 3000);
+                            return;
+                        }
+                        document.getElementById('captcha-error').style.display = 'none';
+                        formData.append('g-recaptcha-response', response);
+                        fetch('/api/auth/login', {
+                            method: 'POST',
+                            body: formData
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                captchaModal.hide();
+                                if (data.success) {
+                                    window.location.href = '/';
+                                } else {
+                                    alert(data.message || 'Login failed.');
+                                }
+                            })
+                            .catch(() => {
+                                captchaModal.hide();
+                                alert('An error occurred.');
+                            });
+                    });
+                });
+            </script>
         </div>
     </div>
 </main>
 <?php include 'includes/common/captcha-modal.php'; ?>
 <?php include 'includes/common/footer.php'; ?>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const loginForm = document.getElementById('loginForm');
-        const captchaModal = new bootstrap.Modal(document.getElementById('captchaModal'));
-        let formData = null;
-
-        loginForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            formData = new FormData(loginForm);
-            captchaModal.show();
-        });
-
-        document.getElementById('verifyCaptchaBtn').addEventListener('click', function () {
-            const response = grecaptcha.getResponse();
-            if (!response) {
-                document.getElementById('captcha-error').style.display = 'block';
-                setTimeout(() => {
-                    document.getElementById('captcha-error').style.display = 'none';
-                }, 3000);
-                return;
-            }
-            document.getElementById('captcha-error').style.display = 'none';
-            formData.append('g-recaptcha-response', response);
-            fetch('/api/auth/login', {
-                method: 'POST',
-                body: formData
-            })
-                .then(res => res.json())
-                .then(data => {
-                    captchaModal.hide();
-                    if (data.success) {
-                        window.location.href = '/chat.php';
-                    } else {
-                        alert(data.message || 'Login failed.');
-                    }
-                })
-                .catch(() => {
-                    captchaModal.hide();
-                    alert('An error occurred.');
-                });
-        });
-    });
-</script>
 </body>
 </html>
-
-
-
-
-
-

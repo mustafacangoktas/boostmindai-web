@@ -1,35 +1,71 @@
 <?php
-
 class Router
 {
     private array $routes = [];
 
-    public function get($pattern, $callback): void
+    /**
+     * Add a GET route to the router.
+     *
+     * @param string $pattern The route pattern, which can include parameters.
+     * @param callable $callback The callback function to handle the request.
+     */
+    public function get(string $pattern, callable $callback): void
     {
         $this->addRoute('GET', $pattern, $callback);
     }
 
-    public function post($pattern, $callback): void
+    /**
+     * Add a POST route to the router.
+     *
+     * @param string $pattern The route pattern, which can include parameters.
+     * @param callable $callback The callback function to handle the request.
+     */
+    public function post(string $pattern, callable $callback): void
     {
         $this->addRoute('POST', $pattern, $callback);
     }
 
-    public function put($pattern, $callback): void
+    /**
+     * Add a PUT route to the router.
+     *
+     * @param string $pattern The route pattern, which can include parameters.
+     * @param callable $callback The callback function to handle the request.
+     */
+    public function put(string $pattern, callable $callback): void
     {
         $this->addRoute('PUT', $pattern, $callback);
     }
 
-    public function delete($pattern, $callback): void
+    /**
+     * Add a DELETE route to the router.
+     *
+     * @param string $pattern The route pattern, which can include parameters.
+     * @param callable $callback The callback function to handle the request.
+     */
+    public function delete(string $pattern, callable $callback): void
     {
         $this->addRoute('DELETE', $pattern, $callback);
     }
 
-    private function addRoute($method, $pattern, $callback): void
+    /**
+     * Add a route to the router.
+     *
+     * @param string $method The HTTP method (GET, POST, etc.).
+     * @param string $pattern The route pattern, which can include parameters.
+     * @param callable $callback The callback function to handle the request.
+     */
+    private function addRoute(string $method, string $pattern, callable $callback): void
     {
         $this->routes[$method][] = ['pattern' => $pattern, 'callback' => $callback];
     }
 
-    public function dispatch($method, $uri): void
+    /**
+     * Dispatch the request to the appropriate route based on the HTTP method and URI.
+     *
+     * @param string $method The HTTP method (GET, POST, etc.).
+     * @param string $uri The request URI.
+     */
+    public function dispatch(string $method, string $uri): void
     {
         $supported = getSupportedLanguages();
         $preferred = getPreferredLanguage();
@@ -40,7 +76,7 @@ class Router
         // Handle both language-prefixed and non-prefixed URLs
         $cleanUri = removeLanguagePrefixFromUri($uri);
 
-        if ($preferred !== $urlLang) {
+        if ($preferred !== $urlLang && (!str_starts_with($uri, '/api'))) {
             $redirectUri = $preferred === 'en' ? $cleanUri : '/' . $preferred . $cleanUri;
             header('Location: ' . $redirectUri, true, 302);
             exit;
@@ -61,7 +97,14 @@ class Router
         require __DIR__ . '/../pages/404.php';
     }
 
-    private function tryDispatchRoute($method, $uri): bool
+    /**
+     * Try to dispatch the route based on the method and URI.
+     *
+     * @param string $method The HTTP method (GET, POST, etc.).
+     * @param string $uri The request URI.
+     * @return bool True if a route was matched and dispatched, false otherwise.
+     */
+    private function tryDispatchRoute(string $method, string $uri): bool
     {
         foreach ($this->routes[$method] ?? [] as $route) {
             // Support {param:regex} as well as {param}

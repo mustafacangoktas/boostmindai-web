@@ -16,6 +16,7 @@ composer.phar
 .env.development
 .env.test
 .env.production
+config.php
 
 # Node.js (if used for frontend)
 node_modules/

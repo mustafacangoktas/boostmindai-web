@@ -1,4 +1,15 @@
 <?php
+/**
+ * English Language File for BoostMindAI
+ *
+ * This file contains all user-facing text strings used in the BoostMindAI interface.
+ * It is used for internationalization (i18n) and should be included by the localization system.
+ *
+ * @language en
+ * @package Language
+ * @author Mustafa Can Göktaş
+ */
+
 return [
     'privacy_policy' => 'Privacy Policy',
     'terms_of_service' => 'Terms of Service',
@@ -36,6 +47,7 @@ return [
     'login_button' => 'Login',
     'login_no_account' => "Don't have an account?",
     'login_register_link' => 'Register',
+    'login_remember_me' => 'Remember Me',
     'register_title' => 'Sign Up',
     'register_subtitle' => 'Create your BoostMindAI account to start your motivational journey.',
     'register_fullname' => 'Full Name',
@@ -44,6 +56,10 @@ return [
     'register_password_repeat' => 'Repeat Password',
     'register_terms' => 'I agree all statements in',
     'register_terms_link' => 'Terms of service',
+    'register_name_invalid' => 'Please enter your full name (2-50 characters).',
+    'register_email_invalid' => 'Please enter a valid email address.',
+    'register_password_invalid' => 'Password must be 8-32 characters.',
+    'register_password_mismatch' => 'Passwords do not match.',
     'register_button' => 'Register',
     'captcha_title' => 'Captcha Verification',
     'captcha_error' => 'Please complete the captcha.',

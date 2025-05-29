@@ -1,4 +1,15 @@
 <?php
+/**
+ * BoostMindAI için Türkçe Dil Dosyası
+ *
+ * Bu dosya, BoostMindAI arayüzünde kullanılan tüm kullanıcıya yönelik metinleri içerir.
+ * Uluslararasılaştırma (i18n) amacıyla kullanılır ve dil yönetim sistemi tarafından yüklenir.
+ *
+ * @language tr
+ * @package Language
+ * @author Mustafa Can Göktaş
+ */
+
 return [
     'privacy_policy' => 'Gizlilik Politikası',
     'terms_of_service' => 'Hizmet Şartları',
@@ -35,8 +46,9 @@ return [
     'login_remember' => 'Beni Hatırla',
     'login_button' => 'Giriş Yap',
     'login_no_account' => 'Hesabın yok mu?',
-    'login_register_link' => 'Kayıt Ol',
-    'register_title' => 'Kayıt Ol',
+    'login_register_link' => 'Kaydol',
+    'login_remember_me' => 'Beni Hatırla',
+    'register_title' => 'Kaydol',
     'register_subtitle' => 'Motivasyon yolculuğuna başlamak için BoostMindAI hesabını oluştur.',
     'register_fullname' => 'Ad Soyad',
     'register_email' => 'E-posta Adresi',
@@ -44,7 +56,11 @@ return [
     'register_password_repeat' => 'Şifreyi Tekrarla',
     'register_terms' => 'Tüm şartları kabul ediyorum',
     'register_terms_link' => 'Hizmet Şartları',
-    'register_button' => 'Kayıt Ol',
+    'register_name_invalid' => 'Lütfen adınızı ve soyadınızı girin (2-50 karakter).',
+    'register_email_invalid' => 'Lütfen geçerli bir e-posta adresi girin.',
+    'register_password_invalid' => 'Şifre 8-32 karakter olmalıdır.',
+    'register_password_mismatch' => 'Şifreler eşleşmiyor.',
+    'register_button' => 'Kaydol',
     'captcha_title' => 'Captcha Doğrulama',
     'captcha_error' => 'Lütfen captcha doğrulamasını tamamlayın.',
     'captcha_button' => 'Doğrula',

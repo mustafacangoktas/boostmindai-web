@@ -1,6 +1,16 @@
 <?php
+/**
+ * Main entry point for the application
+ * This file initializes the application, sets up routing, and handles requests.
+ * It includes configuration, utility functions, and the router.
+ */
 
-include_once "includes/common/i18n.php";
+
+define("config", require 'config.php');
+
+include_once "utils/i18n.php";
+require_once 'utils/auth.php';
+
 require 'router/Router.php';
 
 $router = new Router();

@@ -1,3 +1,10 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+$userName = $_SESSION['user']['name'] ?? 'Guest';
+$userEmail = $_SESSION['user']['email'] ?? 'guest@example.com';
+?>
 <nav class="d-flex justify-content-between align-items-center py-3">
     <div class="container-fluid d-flex align-items-center justify-content-between">
         <button class="sidebar-burger d-md-none" aria-label="Open sidebar">
@@ -21,8 +28,10 @@
                     <button class="btn btn-link p-0 user-menu-toggle d-flex align-items-center gap-1" type="button"
                             data-bs-toggle="dropdown" aria-expanded="false" style="width: 100%;">
                         <span class="d-flex flex-column align-items-end">
-                            <span>Mustafa Can Göktaş</span>
-                            <span class="text-200">@mustqfacan</span>
+                            <span><?php echo htmlspecialchars($userName); ?></span>
+                            <span class="text-200"><?php echo htmlspecialchars(
+                                    explode('@', $userEmail)[0] ?: 'No Email'
+                                ); ?></span>
                         </span>
                         <img src="/assets/img/chat/user-profile.jpg" alt="Profile Picture" width="48" height="48"
                              class="ms-2 rounded-circle">
@@ -45,5 +54,3 @@
         </div>
     </div>
 </nav>
-
-
