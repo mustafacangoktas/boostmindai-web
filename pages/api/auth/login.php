@@ -7,13 +7,14 @@
  * Also includes reCAPTCHA validation to prevent automated abuse.
  *
  * @package API
- * @author Mustafa Can Göktaş
+ * @author Mustafa Can
  */
 
+use Core\Controllers\CaptchaController;
+use Core\Database;
 use Random\RandomException;
 
-require_once 'utils/captcha.php';
-verify_captcha_and_method();
+CaptchaController::verify();
 
 $email = isset($_POST['email']) ? trim($_POST['email']) : '';
 $password = $_POST['password'] ?? '';
@@ -37,7 +38,9 @@ if (strlen($password) < 8 || strlen($password) > 32) {
     exit;
 }
 
-$stmt = mysqli_prepare(mysqli, 'SELECT id, email, password, name FROM users WHERE email = ? LIMIT 1');
+$mysqli = Database::getConnection();
+
+$stmt = mysqli_prepare($mysqli, 'SELECT id, email, password, name FROM users WHERE email = ? LIMIT 1');
 mysqli_stmt_bind_param($stmt, 's', $email);
 mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
@@ -47,7 +50,7 @@ if (!$user || !password_verify($password, $user['password'])) {
     http_response_code(401);
     echo json_encode(['success' => false, 'message' => 'Invalid email or password.']);
     mysqli_stmt_close($stmt);
-    mysqli_close(mysqli);
+    mysqli_close($mysqli);
     exit;
 }
 
@@ -62,7 +65,7 @@ if ($rememberMe) {
         $userId = $user['id'];
         $expires = time() + (86400 * 30); // 30 days
 
-        $stmt2 = mysqli_prepare(mysqli, 'INSERT INTO user_tokens (user_id, token, expires_at) VALUES (?, ?, FROM_UNIXTIME(?))');
+        $stmt2 = mysqli_prepare($mysqli, 'INSERT INTO user_tokens (user_id, token, expires_at) VALUES (?, ?, FROM_UNIXTIME(?))');
         mysqli_stmt_bind_param($stmt2, 'isi', $userId, $token, $expires);
         mysqli_stmt_execute($stmt2);
         mysqli_stmt_close($stmt2);
@@ -79,7 +82,7 @@ if ($rememberMe) {
         http_response_code(500);
         echo json_encode(['success' => false, 'message' => 'Failed to generate token.']);
         mysqli_stmt_close($stmt);
-        mysqli_close(mysqli);
+        mysqli_close($mysqli);
         exit;
     }
 } else {
@@ -103,6 +106,6 @@ $_SESSION['user'] = [
 ];
 
 mysqli_stmt_close($stmt);
-mysqli_close(mysqli);
+mysqli_close($mysqli);
 
 echo json_encode(['success' => true, 'message' => 'Login successful.']);

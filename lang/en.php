@@ -7,7 +7,7 @@
  *
  * @language en
  * @package Language
- * @author Mustafa Can Göktaş
+ * @author Mustafa Can
  */
 
 return [

@@ -1,10 +1,22 @@
+<?php
+
+use Core\Services\I18n;
+
+/**
+ * Navbar component for the application.
+ * Displays the branding and a button to start a chat.
+ *
+ * @package Components
+ * @author Mustafa Can
+ */
+?>
 <nav class="navbar d-flex justify-content-between align-items-center py-3">
     <div class="container-md">
-        <a class="d-flex align-items-center" href="<?php echo getLanguagePrefix(); ?>/">
+        <a class="d-flex align-items-center" href="<?php echo I18n::getLanguagePrefix(); ?>/">
             <img src="/assets/img/branding/logo.webp" alt="Logo" width="40" height="40" class="me-2">
             <span class="fs-5 fw-bold d-none d-md-inline"><?php echo t('navbar_brand'); ?></span>
         </a>
-        <button onclick="window.location.href = '<?php echo getLanguagePrefix(); ?>/chat';"
+        <button onclick="window.location.href = '<?php echo I18n::getLanguagePrefix(); ?>/chat';"
                 class="btn btn-outline-secondary rounded px-3 py-2 d-flex align-items-center justify-content-center gap-1"
                 style="--bs-btn-bg: var(--bg-200);
             --bs-btn-color: var(--text-50);

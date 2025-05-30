@@ -1,7 +1,10 @@
 <?php
+
+use Core\Controllers\AuthController;
+
 include 'includes/common/head.php';
 
-if (isAuthenticated()) {
+if (AuthController::isAuthenticated()) {
     header('Location: /chat');
     exit;
 }

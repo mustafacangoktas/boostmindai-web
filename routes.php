@@ -5,6 +5,8 @@
  * It uses a router to handle requests and includes necessary files for each route.
  */
 
+use Core\Services\I18n;
+
 if (!isset($router)) {
     die('Router not initialized');
 }
@@ -15,7 +17,7 @@ $router->get('/chat/{id}', fn($id) => require 'pages/chat.php');
 // Catch-all for /api requests (GET, POST, etc.)
 foreach (["get", "post", "put", "delete"] as $method) {
     $router->$method('/{path:.+}', function ($path) use ($method) {
-        $path = str_starts_with($path, '/api') ? $path : removeLanguagePrefixFromUri($path);
+        $path = str_starts_with($path, '/api') ? $path : I18n::removeLanguagePrefix($path);
         if ($path === "/") $path = "index";
         $file = __DIR__ . "/pages/" . $path . ".php";
         if (file_exists($file)) {

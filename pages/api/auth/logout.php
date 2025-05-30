@@ -6,8 +6,10 @@
  * Returns a JSON response indicating logout status.
  *
  * @package API
- * @author Mustafa Can Göktaş
+ * @author Mustafa Can
  */
+
+use Core\Controllers\AuthController;
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
@@ -15,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-logout();
+AuthController::logout();
 
 http_response_code(200);
 echo json_encode(['success' => true, 'message' => 'Logged out successfully.']);

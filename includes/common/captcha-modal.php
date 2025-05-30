@@ -15,7 +15,7 @@
                     <?php echo t('captcha_error'); ?>
                 </div>
                 <div class="g-recaptcha"
-                     data-sitekey="<?php echo htmlspecialchars(config['RECAPTCHA_SITE_KEY'] ?? ''); ?>"></div>
+                     data-sitekey="<?php global $config; echo htmlspecialchars($config['RECAPTCHA_SITE_KEY'] ?? ''); ?>"></div>
             </div>
             <div class="modal-footer justify-content-center">
                 <button type="button" class="btn btn-primary" id="verifyCaptchaBtn"

@@ -7,11 +7,13 @@
  * reCAPTCHA validation is required to prevent abuse.
  *
  * @package API
- * @author Mustafa Can Göktaş
+ * @author Mustafa Can
  */
 
-require_once 'utils/captcha.php';
-verify_captcha_and_method();
+use Core\Controllers\CaptchaController;
+use Core\Database;
+
+CaptchaController::verify();
 
 $email = isset($_POST['email']) ? trim($_POST['email']) : '';
 $name = isset($_POST['name']) ? trim($_POST['name']) : '';
@@ -39,7 +41,9 @@ if (strlen($password) < 8 || strlen($password) > 32) {
     exit;
 }
 
-$check_stmt = mysqli_prepare(mysqli, 'SELECT id FROM users WHERE email = ? LIMIT 1');
+$mysqli = Database::getConnection();
+
+$check_stmt = mysqli_prepare($mysqli, 'SELECT id FROM users WHERE email = ? LIMIT 1');
 mysqli_stmt_bind_param($check_stmt, 's', $email);
 mysqli_stmt_execute($check_stmt);
 $check_result = mysqli_stmt_get_result($check_stmt);
@@ -48,7 +52,7 @@ if (mysqli_fetch_assoc($check_result)) {
     http_response_code(409);
     echo json_encode(['success' => false, 'message' => 'Email is already registered.']);
     mysqli_stmt_close($check_stmt);
-    mysqli_close(mysqli);
+    mysqli_close($mysqli);
     exit;
 }
 
@@ -56,7 +60,7 @@ mysqli_stmt_close($check_stmt);
 
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-$insert_stmt = mysqli_prepare(mysqli, 'INSERT INTO users (email, password, name) VALUES (?, ?, ?)');
+$insert_stmt = mysqli_prepare($mysqli, 'INSERT INTO users (email, password, name) VALUES (?, ?, ?)');
 mysqli_stmt_bind_param($insert_stmt, 'sss', $email, $hashed_password, $name);
 
 if (mysqli_stmt_execute($insert_stmt)) {
@@ -67,4 +71,4 @@ if (mysqli_stmt_execute($insert_stmt)) {
 }
 
 mysqli_stmt_close($insert_stmt);
-mysqli_close(mysqli);
+mysqli_close($mysqli);

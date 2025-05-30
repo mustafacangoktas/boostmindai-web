@@ -1,20 +1,22 @@
 <footer class="mt-10 mb-3 container-md">
     <div style="background-color: var(--bg-300);" class="px-4 py-3 rounded-3">
         <div class="d-flex flex-column flex-md-row gap-4 justify-content-between align-items-md-center">
-            <a class="d-flex align-items-center" href="<?php echo getLanguagePrefix(); ?>/">
+            <a class="d-flex align-items-center" href="<?php use Core\Services\I18n;
+
+            echo I18n::getLanguagePrefix(); ?>/">
                 <img src="/assets/img/branding/logo.webp" alt="Logo" width="40" height="40" class="me-2">
                 <span class="fs-5 fw-bold">BoostMindAI</span>
             </a>
             <ul
                     class="d-flex flex-column flex-md-row gap-3 gap-md-4 m-0 justify-content-center flex-wrap list-unstyled footer__links">
                 <li>
-                    <a href="<?php echo getLanguagePrefix(); ?>/privacy"><?php echo t('privacy_policy'); ?></a>
+                    <a href="<?php echo I18n::getLanguagePrefix(); ?>/privacy"><?php echo t('privacy_policy'); ?></a>
                 </li>
                 <li>
-                    <a href="<?php echo getLanguagePrefix(); ?>/terms"><?php echo t('terms_of_service'); ?></a>
+                    <a href="<?php echo I18n::getLanguagePrefix(); ?>/terms"><?php echo t('terms_of_service'); ?></a>
                 </li>
                 <li>
-                    <a href="<?php echo getLanguagePrefix(); ?>/cookies"><?php echo t('cookies'); ?></a>
+                    <a href="<?php echo I18n::getLanguagePrefix(); ?>/cookies"><?php echo t('cookies'); ?></a>
                 </li>
             </ul>
         </div>
@@ -28,7 +30,7 @@
                 <div class="d-flex align-items-center gap-2 language-dropdown-toggle" id="languageDropdown"
                      role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <span id="currentLang">
-                        <?php echo getPreferredLanguage() === 'tr' ? 'Türkçe' : 'English'; ?>
+                        <?php echo I18n::getLanguagePrefix() === 'tr' ? 'Türkçe' : 'English'; ?>
                     </span>
                     <i data-feather="chevron-down" class="language-dropdown-chevron"></i>
                 </div>
@@ -41,7 +43,7 @@
     </div>
 </footer>
 <script>
-    const supportedLangs = <?php echo json_encode(getSupportedLanguages()); ?>;
+    const supportedLangs = <?php echo json_encode(I18n::getSupportedLanguages()); ?>;
     document.querySelectorAll('.lang-select').forEach(function (el) {
         el.addEventListener('click', function (e) {
             e.preventDefault();

@@ -1,6 +1,6 @@
 <?php
 
-function renderHead($title = "Başlık", $description = "Açıklama", $keywords = "Anahtar Kelimeler"): void
+function renderHead($title, $description, $keywords): void
 {
     echo '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">';
     echo '<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>';

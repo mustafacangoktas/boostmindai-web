@@ -1,4 +1,7 @@
 <?php
+
+use Core\Services\I18n;
+
 class Router
 {
     private array $routes = [];
@@ -67,14 +70,14 @@ class Router
      */
     public function dispatch(string $method, string $uri): void
     {
-        $supported = getSupportedLanguages();
-        $preferred = getPreferredLanguage();
+        $supported = I18n::getSupportedLanguages();
+        $preferred = I18n::getPreferredLanguage();
 
         $parts = explode('/', trim($uri, '/'));
         $urlLang = (!empty($parts[0]) && in_array($parts[0], $supported)) ? $parts[0] : 'en';
 
         // Handle both language-prefixed and non-prefixed URLs
-        $cleanUri = removeLanguagePrefixFromUri($uri);
+        $cleanUri = I18n::removeLanguagePrefix($uri);
 
         if ($preferred !== $urlLang && (!str_starts_with($uri, '/api'))) {
             $redirectUri = $preferred === 'en' ? $cleanUri : '/' . $preferred . $cleanUri;
