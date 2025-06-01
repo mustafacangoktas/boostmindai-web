@@ -126,7 +126,7 @@ class ChatController
         $types = 'iis'; // f.user_id (int), m.user_id (int), m.chat_date (string)
         $params = [$user['id'], $user['id'], $date];
 
-// Apply filters for after/before timestamps
+        // Apply filters for after/before timestamps
         if ($after !== null && $before !== null) {
             if ($after >= $before) {
                 http_response_code(400);

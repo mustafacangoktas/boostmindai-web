@@ -108,7 +108,7 @@
         if (sidebarLastDate) url += `&before=${encodeURIComponent(sidebarLastDate)}`;
         const res = await fetch(url);
         const data = await res.json();
-        if (!data.success || !data.dates.length) {
+        if (!data.success) {
             sidebarAllLoaded = true;
             sidebarLoading.style.display = 'none';
             sidebarLoadingChats = false;

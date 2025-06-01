@@ -15,7 +15,7 @@
 .home-header .hero__background {
     z-index: -3;
     overflow: hidden;
-    transform: scale(2.5);
+    transform: scale(2.5) !important;
     position: relative;
     margin: 120px auto 0 auto;
 }

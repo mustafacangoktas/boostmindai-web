@@ -1,4 +1,4 @@
-<section class="d-flex flex-column position-relative align-items-center text-center gap-1 mx-auto how-it-works mt-10">
+<section data-aos="fade-in" class="d-flex flex-column position-relative align-items-center text-center gap-1 mx-auto how-it-works mt-10">
     <div class="container-md mt-5">
         <header>
             <h2 class="fs-3 fw-bold"><?php echo t('how_it_works'); ?></h2>

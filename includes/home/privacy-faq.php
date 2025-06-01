@@ -1,4 +1,4 @@
-<section
+<section data-aos="fade-in"
         class="container-md d-flex position-relative align-items-center gap-6 justify-content-between mt-10 flex-column flex-lg-row">
 
     <div class="glow glow-accent3"></div>

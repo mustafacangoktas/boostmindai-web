@@ -1,4 +1,5 @@
 <section
+        data-aos="fade-in"
         class="container-md d-flex position-relative align-items-center gap-6 justify-content-between mt-10 flex-column-reverse flex-lg-row">
     <div>
         <div class="text-center text-md-start">
