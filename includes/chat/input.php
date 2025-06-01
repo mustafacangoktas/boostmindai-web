@@ -35,6 +35,7 @@
         function renderMessage(msg, isThinking = false) {
             const wrapper = document.createElement('div');
             wrapper.className = 'chat__message__wrapper chat__message__wrapper--' + (msg.role === 'user' ? 'user' : 'assistant');
+            wrapper.dataset.messageId = msg.id || '';
             wrapper.innerHTML = `
             <div class="chat__message">
                 <div class="chat__message__content">
