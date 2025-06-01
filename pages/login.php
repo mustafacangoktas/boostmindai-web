@@ -72,6 +72,12 @@ if (AuthController::isAuthenticated()) {
                         <?php echo t('login_button'); ?>
                     </button>
                 </div>
+
+                <p class="text-100 text-center mt-3">
+                    <a href="/register" class="text-decoration-none">
+                        <?php echo t('login_no_account'); ?> <strong><?php echo t('login_register_link'); ?></strong>
+                    </a>
+                </p>
             </form>
 
             <script>

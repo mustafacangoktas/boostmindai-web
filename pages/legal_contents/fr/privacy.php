@@ -1,8 +1,8 @@
-<header class="d-flex flex-column main-header" style="height: auto">
+<header class="d-flex flex-column main-header mt-10" style="height: auto">
     <?php include 'includes/common/navbar.php'; ?>
     <section class="hero container-md">
-        <h1 class="fs-xxl fw-bold mt-3">Politique de confidentialité</h1>
-        <p class="text-200">Dernière mise à jour : 2024-06-01</p>
+        <h1 class="fs-xxl fw-bold mt-3 text-center">Politique de confidentialité</h1>
+        <p class="text-200 text-center">Dernière mise à jour : 2024-06-01</p>
     </section>
 </header>
 <main>

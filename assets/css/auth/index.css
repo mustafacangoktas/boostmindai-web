@@ -68,7 +68,7 @@
     gap: 2rem;
 }
 
-.auth-card {
+.auth-container .auth-card {
     flex: 1 1 auto;
     max-width: 45%;
 }
