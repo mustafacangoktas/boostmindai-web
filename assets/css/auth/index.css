@@ -70,6 +70,7 @@
 
 .auth-card {
     flex: 1 1 auto;
+    max-width: 45%;
 }
 
 .auth-bg {
@@ -89,11 +90,14 @@
         right: 0;
         top: 0;
     }
+
     .auth-container {
         flex-direction: column-reverse;
     }
+
     .auth-card {
         width: 100%;
+        max-width: 100%;
         padding: 1rem;
     }
 }

@@ -86,11 +86,21 @@ if (AuthController::isAuthenticated()) {
 
                 <div class="form-check mb-4">
                     <input class="form-check-input me-2" type="checkbox" value="" id="registerTerms" required/>
-                    <label class="form-check-label" for="registerTerms">
-                        <?php echo t('register_terms'); ?>
-                        <a href="#">
-                            <?php echo t('register_terms_link'); ?>
-                        </a>
+                    <label class="form-check-label" for="registerTerms" style="max-width: 530px;">
+                        <span style="margin-bottom: 2px;">
+                            <?php echo t('register_terms'); ?>
+                        </span>
+                        <span style="font-size: 0.97em;">
+                            <a href="/terms" target="_blank" style="color: var(--text-200) !important; text-decoration: underline; white-space: nowrap;">
+                                <?php echo t('register_terms_link'); ?>,
+                            </a>
+                            <a href="/privacy" target="_blank" style="color: var(--text-200) !important; text-decoration: underline; white-space: nowrap;">
+                                <?php echo t('privacy_policy'); ?>,
+                            </a>
+                            <a href="/cookie-policy" target="_blank" style="color: var(--text-200) !important; text-decoration: underline; white-space: nowrap;">
+                                <?php echo t('cookies'); ?>
+                            </a>
+                        </span>
                     </label>
                 </div>
 
