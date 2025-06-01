@@ -17,4 +17,9 @@ return [
     // Google reCAPTCHA keys (get from https://www.google.com/recaptcha/admin)
     'RECAPTCHA_SITE_KEY' => 'your_recaptcha_site_key',
     'RECAPTCHA_SECRET_KEY' => 'your_recaptcha_secret_key',
+
+    // Groq API keys
+    'GROQ_API_KEYS' => [
+        // Add your Groq API keys here
+    ]
 ];
