@@ -33,7 +33,8 @@ $userEmail = $_SESSION['user']['email'] ?? 'guest@example.com';
                                     explode('@', $userEmail)[0] ?: 'No Email'
                                 ); ?></span>
                         </span>
-                        <img src="/assets/img/chat/user-profile.jpg" alt="Profile Picture" width="48" height="48"
+                        <img src="https://ui-avatars.com/api/?name=<?php echo urlencode($userName); ?>&size=64"
+                             alt="Profile Picture" width="48" height="48"
                              class="ms-2 rounded-circle">
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end">
