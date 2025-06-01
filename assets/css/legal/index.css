@@ -1,0 +1,18 @@
+p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+h2 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+ul {
+    margin-left: 1.5rem;
+    list-style-type: disc;
+}
+
+ul li {
+    margin-bottom: 0.5rem;
+}

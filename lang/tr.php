@@ -15,7 +15,7 @@ return [
     'terms_of_service' => 'Kullanım Şartları',
     'cookies' => 'Çerezler',
     'boost_your_mood' => 'Modunu Yükselt',
-    'start_strong_title' => 'Güne Yapay Zeka Desteğiyle Güçlü Başla',
+    'start_strong_title' => 'Güne AI Destekli Motivasyon Sohbetiyle Güçlü Başla',
     'start_strong_desc' => "Zor bir günün ortasında yalnız olmadığını bilmek paha biçilemez. Bu yapay zekâ destekli platformda, yargılamadan dinleyen ve içten destek sunan bir sohbet ortağın var. Birkaç dakika ayır, içini dök ve yeni ilhamlar keşfet.",
     'how_it_works' => 'Nasıl Çalışır?',
     'how_it_works_desc' => 'Yapay zekayla kolayca sohbet et, kendini ifade et ve motive ol.',
