@@ -6,7 +6,7 @@
  * generating a persistent token for "Remember Me" functionality.
  * Also includes reCAPTCHA validation to prevent automated abuse.
  *
- * @package API
+ * @package API\Auth
  * @author Mustafa Can
  */
 

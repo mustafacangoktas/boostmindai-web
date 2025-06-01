@@ -6,7 +6,7 @@
  * hashing passwords securely, and storing user data in the database.
  * reCAPTCHA validation is required to prevent abuse.
  *
- * @package API
+ * @package API\Auth
  * @author Mustafa Can
  */
 

@@ -2,7 +2,7 @@
 
 use Core\Controllers\AuthController;
 
-include 'includes/common/head.php';
+include_once 'includes/common/head.php';
 
 if (AuthController::isAuthenticated()) {
     header('Location: /chat');
@@ -56,21 +56,31 @@ if (AuthController::isAuthenticated()) {
                     <div class="invalid-feedback"><?php echo t('register_email_invalid'); ?></div>
                 </div>
 
-                <div class="mb-4 form-floating">
+                <div class="mb-4 form-floating position-relative">
                     <input type="password" id="registerPassword" name="password" class="form-control"
                            placeholder="Password (min. 8 characters)" required minlength="8" maxlength="32"/>
                     <label for="registerPassword">
                         <?php echo t('register_password'); ?>
                     </label>
+                    <button type="button"
+                            class="btn btn-link position-absolute top-50 translate-middle-y px-2 show-password-toggle"
+                            tabindex="-1" style="z-index: 2; right: 5px; color: var(--text-300);">
+                        <i data-feather="eye" class="feather-icon" style="height: 1.3rem;"></i>
+                    </button>
                     <div class="invalid-feedback"><?php echo t('register_password_invalid'); ?></div>
                 </div>
 
-                <div class="mb-4 form-floating">
+                <div class="mb-4 form-floating position-relative">
                     <input type="password" id="registerPasswordRepeat" class="form-control"
                            placeholder="Repeat Password" required minlength="8" maxlength="32"/>
                     <label for="registerPasswordRepeat">
                         <?php echo t('register_password_repeat'); ?>
                     </label>
+                    <button type="button"
+                            class="btn btn-link position-absolute top-50 translate-middle-y px-2 show-password-toggle"
+                            tabindex="-1" style="z-index: 2; right: 5px; color: var(--text-300);">
+                        <i data-feather="eye" class="feather-icon" style="height: 1.3rem;"></i>
+                    </button>
                     <div class="invalid-feedback"><?php echo t('register_password_mismatch'); ?></div>
                 </div>
 
@@ -93,6 +103,22 @@ if (AuthController::isAuthenticated()) {
 
             <script>
                 document.addEventListener('DOMContentLoaded', function () {
+                    document.querySelectorAll('.show-password-toggle').forEach(function (btn) {
+                        btn.addEventListener('click', function () {
+                            const input = btn.parentElement.querySelector('input[type="password"], input[type="text"]');
+                            if (!input) return;
+                            if (input.type === 'password') {
+                                input.type = 'text';
+                                btn.innerHTML = '<i data-feather="eye-off" class="feather-icon" style="height: 1.3rem;"></i>';
+                            } else {
+                                input.type = 'password';
+                                btn.innerHTML = '<i data-feather="eye" class="feather-icon" style="height: 1.3rem;"></i>';
+                            }
+                            feather.replace();
+                        });
+                    });
+                });
+                document.addEventListener('DOMContentLoaded', function () {
                     const registerForm = document.getElementById('registerForm');
                     const captchaModal = new bootstrap.Modal(document.getElementById('captchaModal'));
                     let formData = null;
@@ -106,7 +132,7 @@ if (AuthController::isAuthenticated()) {
                         const password = document.getElementById('registerPassword');
                         const repeatPassword = document.getElementById('registerPasswordRepeat');
                         if (password.value !== repeatPassword.value) {
-                            repeatPassword.setCustomValidity('Passwords do not match');
+                            repeatPassword.setCustomValidity("<?php echo t('register_password_mismatch'); ?>");
                             valid = false;
                         } else {
                             repeatPassword.setCustomValidity('');

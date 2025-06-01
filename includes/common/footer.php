@@ -30,13 +30,17 @@
                 <div class="d-flex align-items-center gap-2 language-dropdown-toggle" id="languageDropdown"
                      role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <span id="currentLang">
-                        <?php echo I18n::getLanguagePrefix() === 'tr' ? 'Türkçe' : 'English'; ?>
+                        <?php echo I18n::getPreferredLanguage() === 'en' ? 'English' :
+                            (I18n::getPreferredLanguage() === 'tr' ? 'Türkçe' :
+                                (I18n::getPreferredLanguage() === 'de' ? 'Deutsch' : 'Français')); ?>
                     </span>
                     <i data-feather="chevron-down" class="language-dropdown-chevron"></i>
                 </div>
                 <ul class="dropdown-menu language-dropdown-menu" aria-labelledby="languageDropdown">
                     <li><a class="dropdown-item lang-select" href="#" data-lang="en">English</a></li>
                     <li><a class="dropdown-item lang-select" href="#" data-lang="tr">Türkçe</a></li>
+                    <li><a class="dropdown-item lang-select" href="#" data-lang="de">Deutsch</a></li>
+                    <li><a class="dropdown-item lang-select" href="#" data-lang="fr">Français</a></li>
                 </ul>
             </div>
         </div>

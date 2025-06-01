@@ -74,6 +74,11 @@ class Router
         $preferred = I18n::getPreferredLanguage();
 
         $parts = explode('/', trim($uri, '/'));
+
+        if (str_ends_with($uri, '/')) {
+            $uri = substr($uri, 0, -1); // Remove trailing slash
+        }
+
         $urlLang = (!empty($parts[0]) && in_array($parts[0], $supported)) ? $parts[0] : 'en';
 
         // Handle both language-prefixed and non-prefixed URLs
@@ -109,8 +114,8 @@ class Router
      */
     private function tryDispatchRoute(string $method, string $uri): bool
     {
+        // In Router::tryDispatchRoute
         foreach ($this->routes[$method] ?? [] as $route) {
-            // Support {param:regex} as well as {param}
             $pattern = preg_replace_callback(
                 '#\{([a-zA-Z0-9_]+)(?::([^}]+))?\}#',
                 function ($matches) {
@@ -120,8 +125,18 @@ class Router
                 },
                 $route['pattern']
             );
+            // Special case: treat '/' and '' as the same for root
+            if ($route['pattern'] === '/' && ($uri === '/' || $uri === '')) {
+                call_user_func_array($route['callback'], []);
+                return true;
+            }
             $pattern = "#^" . $pattern . "$#";
             if (preg_match($pattern, $uri, $params)) {
+                foreach ($params as $key => $value) {
+                    if (is_string($key)) {
+                        $_GET[$key] = $value;
+                    }
+                }
                 call_user_func_array($route['callback'], array_filter($params, 'is_string', ARRAY_FILTER_USE_KEY));
                 return true;
             }

@@ -1,5 +1,5 @@
 <?php
-include 'includes/common/head.php';
+include_once 'includes/common/head.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

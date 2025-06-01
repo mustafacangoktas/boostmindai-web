@@ -50,7 +50,7 @@
                         <i data-feather="at-sign"></i>
                     </div>
                     <h3 class="fs-5 fw-semibold text-50">
-                        <?php echo t('feature_attentive'); ?>
+                        <?php echo t('feature_listening'); ?>
                     </h3>
                 </div>
 

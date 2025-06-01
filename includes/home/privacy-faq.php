@@ -36,11 +36,11 @@
 
         <div class="privacy-faq__item">
             <div class="d-flex gap-3 mt-3 privacy-faq__card align-items-center justify-content-between">
-                <span><?php echo t('faq_delete_history_q'); ?></span>
+                <span><?php echo t('faq_secure_q'); ?></span>
                 <i data-feather="chevron-right" class="privacy-faq__icon"></i>
             </div>
             <div class="privacy-faq__answer">
-                <p><?php echo t('faq_delete_history_a'); ?></p>
+                <p><?php echo t('faq_secure_a'); ?></p>
             </div>
         </div>
     </div>

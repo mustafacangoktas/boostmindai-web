@@ -2,7 +2,7 @@
 
 use Core\Controllers\AuthController;
 
-include 'includes/common/head.php';
+include_once 'includes/common/head.php';
 
 if (AuthController::isAuthenticated()) {
     header('Location: /chat');
@@ -46,12 +46,17 @@ if (AuthController::isAuthenticated()) {
                     <div class="invalid-feedback"><?php echo t('login_email_invalid'); ?></div>
                 </div>
 
-                <div class="mb-4 form-floating">
+                <div class="mb-4 form-floating position-relative">
                     <input type="password" id="loginPassword" name="password" class="form-control"
                            placeholder="Password" required minlength="8" maxlength="32"/>
                     <label for="loginPassword">
                         <?php echo t('login_password'); ?>
                     </label>
+                    <button type="button"
+                            class="btn btn-link position-absolute top-50 translate-middle-y px-2 show-password-toggle"
+                            tabindex="-1" style="z-index: 2; right: 5px; color: var(--text-300);">
+                        <i data-feather="eye" class="feather-icon" style="height: 1.3rem;"></i>
+                    </button>
                     <div class="invalid-feedback"><?php echo t('login_password_invalid'); ?></div>
                 </div>
 
@@ -70,6 +75,22 @@ if (AuthController::isAuthenticated()) {
             </form>
 
             <script>
+                document.addEventListener('DOMContentLoaded', function () {
+                    document.querySelectorAll('.show-password-toggle').forEach(function (btn) {
+                        btn.addEventListener('click', function () {
+                            const input = btn.parentElement.querySelector('input[type="password"], input[type="text"]');
+                            if (!input) return;
+                            if (input.type === 'password') {
+                                input.type = 'text';
+                                btn.innerHTML = '<i data-feather="eye-off" class="feather-icon" style="height: 1.3rem;"></i>';
+                            } else {
+                                input.type = 'password';
+                                btn.innerHTML = '<i data-feather="eye" class="feather-icon" style="height: 1.3rem;"></i>';
+                            }
+                            feather.replace();
+                        });
+                    });
+                });
                 document.addEventListener('DOMContentLoaded', function () {
                     const loginForm = document.getElementById('loginForm');
                     const captchaModal = new bootstrap.Modal(document.getElementById('captchaModal'));
@@ -104,7 +125,7 @@ if (AuthController::isAuthenticated()) {
                             .then(data => {
                                 captchaModal.hide();
                                 if (data.success) {
-                                    window.location.href = '/';
+                                    window.location.href = '/chat';
                                 } else {
                                     alert(data.message || 'Login failed.');
                                 }

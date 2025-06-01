@@ -1,14 +1,25 @@
+main {
+    height: calc(100vh - 100px);
+}
+
 .chat__messages {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     width: 100%;
     margin-top: 1rem;
+    overflow-y: scroll;
+    max-height: calc(100% - 120px);
+}
+
+.chat__messages::-webkit-scrollbar-corner {
+    background-color: transparent;
 }
 
 .chat__message__wrapper {
     display: flex;
     flex-direction: column;
+    padding-right: 8px;
 }
 
 .chat__message {
@@ -70,7 +81,11 @@
     color: #ffc107 !important;
 }
 
-.star-btn.active {
+.star-btn.favorite {
     color: #ffc107 !important;
     opacity: 1;
+}
+
+.star-btn.favorite svg {
+    fill: #ffc107 !important;
 }

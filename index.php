@@ -17,6 +17,9 @@ require_once __DIR__ . '/core/Router.php';
 require_once __DIR__ . '/core/services/I18n.php';
 require_once __DIR__ . '/core/controllers/AuthController.php';
 require_once __DIR__ . '/core/controllers/CaptchaController.php';
+require_once __DIR__ . '/core/controllers/ChatController.php';
+require_once __DIR__ . '/core/controllers/GroqController.php';
+require_once __DIR__ . '/core/controllers/FavoriteController.php';
 
 use Core\Controllers\AuthController;
 use Core\Database;
@@ -44,6 +47,13 @@ $router = new Router();
 // Initialize i18n and auth controllers
 Database::initialize();
 AuthController::initialize();
+
+$timezone = $_SESSION['timezone'] ?? null;
+if ($timezone && in_array($timezone, timezone_identifiers_list())) {
+    date_default_timezone_set($timezone);
+} else {
+    date_default_timezone_set('UTC');
+}
 
 // Load routes
 require_once __DIR__ . '/routes.php';

@@ -8,7 +8,7 @@
 
 .auth-card .form-control:focus {
     border-color: var(--stroke-200) !important;
-    background-color: var(--bg-300);
+    background-color: var(--bg-300) !important;
     color: var(--text-50);
 }
 
@@ -23,6 +23,15 @@
 
 .auth-card .form-floating label:after {
     background-color: transparent !important;
+}
+
+.auth-card .btn {
+    border: none;
+    color: var(--text-100);
+    font-weight: 600;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 .auth-card .btn-primary {

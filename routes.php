@@ -12,7 +12,17 @@ if (!isset($router)) {
 }
 
 $router->get('/', fn() => require 'pages/index.php');
+
 $router->get('/chat/{id}', fn($id) => require 'pages/chat.php');
+$router->get('/{lang}/chat/{id}', fn($lang, $id) => require 'pages/chat.php');
+
+$router->post('/api/chat/{id}', fn($id) => $id == "regenerate" ?
+    require 'pages/api/chat/regenerate.php' :
+    ($id == "delete" ?
+        require 'pages/api/chat/delete.php' :
+        require 'pages/api/chat.php'
+    )
+);
 
 // Catch-all for /api requests (GET, POST, etc.)
 foreach (["get", "post", "put", "delete"] as $method) {

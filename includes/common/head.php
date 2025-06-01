@@ -29,5 +29,7 @@ function renderHead($title, $description, $keywords): void
     echo '<meta name="twitter:site" content="@boostmindai.mustafacan.dev">';
     echo '<meta name="twitter:creator" content="@mustafacan.dev">';
     echo '<script defer>window.onload = function () { if (window.feather) feather.replace(); };</script>';
+    // fetch /api/timezone with query parameter "timezone" and set the timezone cookie
+    echo '<script defer>fetch("/api/timezone?timezone=" + Intl.DateTimeFormat().resolvedOptions().timeZone).catch(error => console.error("Error setting timezone cookie:", error));</script>';
 }
 

@@ -100,5 +100,47 @@ class Database
                 'message' => 'Failed to create user_tokens table: ' . $db->error
             ]));
         }
+
+        // Create 'chat_messages' table for storing user chat history
+        $createChatMessagesTableSQL = <<<SQL
+        CREATE TABLE IF NOT EXISTS chat_messages (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            user_id INT NOT NULL,
+            message TEXT NOT NULL,
+            role ENUM('user', 'assistant') NOT NULL,
+            chat_date DATE NOT NULL,
+            created_at DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            INDEX (user_id, chat_date),
+            FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+        SQL;
+
+        if (!$db->query($createChatMessagesTableSQL)) {
+            die(json_encode([
+                'success' => false,
+                'message' => 'Failed to create chat_messages table: ' . $db->error
+            ]));
+        }
+
+        // Create 'favorite_messages' table for storing user favorites
+        $createFavoriteMessagesTableSQL = <<<SQL
+        CREATE TABLE IF NOT EXISTS favorite_messages (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            user_id INT NOT NULL,
+            message_id INT NOT NULL,
+            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE KEY unique_favorite (user_id, message_id),
+            FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+            FOREIGN KEY (message_id) REFERENCES chat_messages(id) ON DELETE CASCADE
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+        SQL;
+
+        if (!$db->query($createFavoriteMessagesTableSQL)) {
+            die(json_encode([
+                'success' => false,
+                'message' => 'Failed to create favorite_messages table: ' . $db->error
+            ]));
+        }
+
     }
 }

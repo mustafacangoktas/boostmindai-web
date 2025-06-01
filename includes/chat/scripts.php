@@ -43,8 +43,18 @@
         if (!textarea) return;
 
         function autoResize() {
-            textarea.style.height = 'auto';
-            textarea.style.height = `${Math.min(textarea.scrollHeight, textarea.scrollHeight, 2.5 * 16 * 5)}px`;
+            // max height is set to 140px, adjust as needed
+            const maxHeight = 140;
+            const minHeight = 50; // Minimum height to prevent collapsing
+            textarea.style.minHeight = minHeight + 'px';
+            textarea.style.height = 'auto'; // Reset height to auto to get the scrollHeight correctly
+            textarea.style.height = Math.min(textarea.scrollHeight, maxHeight) + 'px';
+            // Ensure the textarea doesn't exceed max height
+            if (textarea.scrollHeight > maxHeight) {
+                textarea.style.overflowY = 'auto'; // Enable scroll if content exceeds max height
+            } else {
+                textarea.style.overflowY = 'hidden'; // Hide scroll if content fits
+            }
         }
 
         textarea.addEventListener('input', autoResize);

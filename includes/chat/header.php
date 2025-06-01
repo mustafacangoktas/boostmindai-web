@@ -17,12 +17,12 @@ $userEmail = $_SESSION['user']['email'] ?? 'guest@example.com';
             <span class="fs-5 fw-bold">BoostMindAI</span>
         </a>
         <div class="d-flex align-items-center gap-3 ">
-            <div style="position: relative; width: 100%;" class="d-none d-md-block">
-                <i data-feather="search" class="input-icon"></i>
-                <input type="text" name="search" id="search" placeholder="Search..."
-                       class="form-control search-input"
-                       aria-label="Search">
-            </div>
+            <!--            <div style="position: relative; width: 100%;" class="d-none d-md-block">-->
+            <!--                <i data-feather="search" class="input-icon"></i>-->
+            <!--                <input type="text" name="search" id="search" placeholder="Search..."-->
+            <!--                       class="form-control search-input"-->
+            <!--                       aria-label="Search">-->
+            <!--            </div>-->
             <div class="user-dropdown">
                 <div class="dropdown">
                     <button class="btn btn-link p-0 user-menu-toggle d-flex align-items-center gap-1" type="button"
@@ -39,14 +39,18 @@ $userEmail = $_SESSION['user']['email'] ?? 'guest@example.com';
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li class="d-flex align-items-center dropdown-item gap-1 cursor-pointer">
                             <i data-feather="settings" style="width: 18px; height: 18px;"></i>
-                            <a href="#" data-bs-toggle="modal" data-bs-target="#settingsModal">Settings</a>
+                            <span data-bs-toggle="modal" data-bs-target="#settingsModal">
+                                <?php echo t("navbar_settings") ?>
+                            </span>
                         </li>
                         <li>
                             <hr class="dropdown-divider my-1">
                         </li>
-                        <li class="d-flex align-items-center dropdown-item gap-1 cursor-pointer">
+                        <li class="d-flex align-items-center dropdown-item gap-1 cursor-pointer" id="logout-btn">
                             <i data-feather="log-out" style="width: 18px; height: 18px;"></i>
-                            <a href="#">Log Out</a>
+                            <span>
+                                <?php echo t("navbar_logout") ?>
+                            </span>
                         </li>
                     </ul>
                 </div>
@@ -54,3 +58,23 @@ $userEmail = $_SESSION['user']['email'] ?? 'guest@example.com';
         </div>
     </div>
 </nav>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const logoutBtn = document.getElementById('logout-btn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                fetch('/api/auth/logout', {method: 'POST'})
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            window.location.href = '/login';
+                        } else {
+                            alert(data.message || 'Logout failed.');
+                        }
+                    })
+                    .catch(() => alert('Logout failed.'));
+            });
+        }
+    });
+</script>
