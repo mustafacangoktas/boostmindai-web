@@ -35,7 +35,6 @@
         function renderMessage(msg, isThinking = false) {
             const wrapper = document.createElement('div');
             wrapper.className = 'chat__message__wrapper chat__message__wrapper--' + (msg.role === 'user' ? 'user' : 'assistant');
-            wrapper.dataset.messageId = msg.id || '';
             wrapper.innerHTML = `
             <div class="chat__message">
                 <div class="chat__message__content">
@@ -50,7 +49,7 @@
                     <button class="btn btn-link p-1 message-action-btn copy-btn" title="Copy" onclick="copyMessageClickHandler()">
                         <i data-feather="copy" style="width: 18px; height: 18px;"></i>
                     </button>
-                    <button class="btn btn-link p-1 message-action-btn star-btn" title="Add to Favorites">
+                    <button class="btn btn-link p-1 message-action-btn star-btn" title="Add to Favorites" onclick="toggleFavoriteMessageClickHandler()">
                         <i data-feather="star" style="width: 18px; height: 18px;"></i>
                     </button>
                     <button <?php if (isset($_GET['id'])) echo 'style="display: none;"';?> class="btn btn-link p-1 message-action-btn regenerate-btn" title="Regenerate" onclick="regenerateMessageClickHandler()">
@@ -94,6 +93,7 @@
                 const data = await res.json();
                 if (data.success && data.message) {
                     thinkingEl.querySelector('p').innerHTML = data.message.replace(/\n/g, '<br>');
+                    thinkingEl.dataset.messageId = data.id;
                 } else {
                     thinkingEl.querySelector('p').innerHTML = '<span style="color:red"><?php echo t("chat_error_fallback") ?></span>';
                 }

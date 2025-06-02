@@ -121,11 +121,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Validate response
-    ChatController::addMessage($date, $response, 'assistant');
+    $message = ChatController::addMessage($date, $response, 'assistant');
 
     // Return the response as JSON
     echo json_encode([
         'success' => true,
-        'message' => $response
+        'id' => $message['data']['id'],
+        'message' => $response,
     ]);
 }
