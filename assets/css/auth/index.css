@@ -97,7 +97,7 @@
 
     .auth-card {
         width: 100%;
-        max-width: 100%;
+        max-width: 100% !important;
         padding: 1rem;
     }
 }
