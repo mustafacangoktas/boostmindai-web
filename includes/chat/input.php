@@ -83,6 +83,7 @@
             textarea.disabled = true;
             sendButton.disabled = true;
 
+            document.getElementById('quick_reply_row').style.setProperty('display', 'none', 'important');
             try {
                 const formData = new FormData();
                 formData.append('message', message);
@@ -119,7 +120,6 @@
         // Quick reply click handler
         quickReplies.forEach(btn => {
             btn.addEventListener('click', function () {
-                document.getElementById('quick_reply_row').style.setProperty('display', 'none', 'important');
                 sendMessage(null, btn.textContent.trim());
             });
         });
