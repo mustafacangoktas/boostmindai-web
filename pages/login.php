@@ -54,9 +54,9 @@ if (AuthController::isAuthenticated()) {
                         <?php echo t('login_password'); ?>
                     </label>
                     <button type="button"
-                            class="btn btn-link position-absolute top-50 translate-middle-y px-2 show-password-toggle"
+                            class="btn btn-link position-absolute translate-middle-y px-2 show-password-toggle"
                             tabindex="-1" style="z-index: 2; right: 5px; color: var(--text-300);">
-                        <i data-feather="eye" class="feather-icon" style="height: 1.3rem;"></i>
+                        <i data-feather="eye" class="feather-icon" style="height: 1.37rem;"></i>
                     </button>
                     <div class="invalid-feedback"><?php echo t('login_password_invalid'); ?></div>
                 </div>
@@ -89,10 +89,10 @@ if (AuthController::isAuthenticated()) {
                             if (!input) return;
                             if (input.type === 'password') {
                                 input.type = 'text';
-                                btn.innerHTML = '<i data-feather="eye-off" class="feather-icon" style="height: 1.3rem;"></i>';
+                                btn.innerHTML = '<i data-feather="eye-off" class="feather-icon" style="height: 1.37rem;"></i>';
                             } else {
                                 input.type = 'password';
-                                btn.innerHTML = '<i data-feather="eye" class="feather-icon" style="height: 1.3rem;"></i>';
+                                btn.innerHTML = '<i data-feather="eye" class="feather-icon" style="height: 1.37rem;"></i>';
                             }
                             feather.replace();
                         });

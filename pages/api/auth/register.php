@@ -32,7 +32,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($email) > 255) {
 }
 if (strlen($name) < 2 || strlen($name) > 50) {
     http_response_code(400);
-    echo json_encode(['success' => false, 'message' => 'Name must be between 2 and 50 characters.']);
+    echo json_encode(['success' => false, 'message' => t('register_name_invalid')]);
     exit;
 }
 if (strlen($password) < 8 || strlen($password) > 32) {
@@ -50,7 +50,7 @@ $check_result = mysqli_stmt_get_result($check_stmt);
 
 if (mysqli_fetch_assoc($check_result)) {
     http_response_code(409);
-    echo json_encode(['success' => false, 'message' => 'Email is already registered.']);
+    echo json_encode(['success' => false, 'message' => t('register_email_already_exists')]);
     mysqli_stmt_close($check_stmt);
     mysqli_close($mysqli);
     exit;

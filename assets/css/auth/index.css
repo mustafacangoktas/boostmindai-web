@@ -83,6 +83,15 @@
     flex: 1 1 auto;
 }
 
+.show-password-toggle {
+    top: 29px !important;
+    right: 0 !important;
+}
+
+.show-password-toggle svg {
+    fill: #08031d;
+}
+
 
 @media screen and (max-width: 1024px) {
     .auth-bg {

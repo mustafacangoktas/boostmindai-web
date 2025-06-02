@@ -22,19 +22,19 @@ $rememberMe = isset($_POST['remember_me']);
 
 if ($email === '' || $password === '') {
     http_response_code(400);
-    echo json_encode(['success' => false, 'message' => 'Email and password are required.']);
+    echo json_encode(['success' => false, 'message' => t('login_email_invalid')]);
     exit;
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL) || strlen($email) > 255) {
     http_response_code(400);
-    echo json_encode(['success' => false, 'message' => 'Invalid email address.']);
+    echo json_encode(['success' => false, 'message' => t('login_email_invalid')]);
     exit;
 }
 
 if (strlen($password) < 8 || strlen($password) > 32) {
     http_response_code(400);
-    echo json_encode(['success' => false, 'message' => 'Password must be between 8 and 32 characters.']);
+    echo json_encode(['success' => false, 'message' => t('login_password_invalid')]);
     exit;
 }
 
@@ -48,7 +48,7 @@ $user = mysqli_fetch_assoc($result);
 
 if (!$user || !password_verify($password, $user['password'])) {
     http_response_code(401);
-    echo json_encode(['success' => false, 'message' => 'Invalid email or password.']);
+    echo json_encode(['success' => false, 'message' => t('login_credentials_invalid')]);
     mysqli_stmt_close($stmt);
     mysqli_close($mysqli);
     exit;
