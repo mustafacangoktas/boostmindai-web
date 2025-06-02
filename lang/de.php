@@ -42,6 +42,7 @@ return [
     'login_title' => 'Anmelden',
     'login_subtitle' => 'Melde dich bei BoostMindAI an, um weiterzumachen.',
     'login_email' => 'E-Mail-Adresse',
+    'login_email_invalid' => 'Bitte gib eine gültige E-Mail-Adresse ein.',
     'login_password' => 'Passwort',
     'login_password_invalid' => 'Passwort muss 8–32 Zeichen lang sein.',
     'login_credentials_invalid' => 'Ungültige E-Mail oder Passwort.',

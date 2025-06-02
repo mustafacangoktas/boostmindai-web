@@ -42,6 +42,7 @@ return [
     'login_title' => 'Connexion',
     'login_subtitle' => 'Connectez-vous à votre compte BoostMindAI pour continuer.',
     'login_email' => 'Adresse e-mail',
+    'login_email_invalid' => 'Veuillez entrer une adresse e-mail valide.',
     'login_password' => 'Mot de passe',
     'login_password_invalid' => 'Le mot de passe doit faire 8-32 caractères.',
     'login_credentials_invalid' => 'E-mail ou mot de passe invalide.',

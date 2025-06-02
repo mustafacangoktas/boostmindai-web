@@ -42,6 +42,7 @@ return [
     'login_title' => 'Login',
     'login_subtitle' => 'Login to your BoostMindAI account to continue your motivational journey.',
     'login_email' => 'Email Address',
+    'login_email_invalid' => 'Please enter a valid email address.',
     'login_password' => 'Password',
     'login_password_invalid' => 'Password must be 8-32 characters.',
     'login_credentials_invalid' => 'Invalid email or password.',
