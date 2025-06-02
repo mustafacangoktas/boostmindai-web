@@ -237,49 +237,46 @@ class ChatController
         }
 
         $db = Database::getConnection();
-        // Fetch the assistant message and its chat context
+
+        // Fetch the original assistant message
         $stmt = $db->prepare('SELECT * FROM chat_messages WHERE id = ? AND user_id = ? AND role = \'assistant\'');
         $stmt->bind_param('ii', $messageId, $user['id']);
         $stmt->execute();
-        $msg = $stmt->get_result()->fetch_assoc();
+        $assistantMsg = $stmt->get_result()->fetch_assoc();
         $stmt->close();
 
-        if (!$msg) {
+        if (!$assistantMsg) {
             http_response_code(404);
             throw new Exception('Message not found');
         }
 
         $today = date('Y-m-d');
-        if ($msg['chat_date'] !== $today) {
+        if ($assistantMsg['chat_date'] !== $today) {
             http_response_code(400);
             throw new Exception('Cannot regenerate messages from past chats');
         }
 
-        // Fetch recent chat history for the same chat_date
-        $stmt = $db->prepare('SELECT * FROM chat_messages WHERE user_id = ? AND chat_date = ? AND created_at < ? ORDER BY created_at ASC LIMIT 15');
-        $stmt->bind_param('iss', $user['id'], $msg['chat_date'], $msg['created_at']);
-        $stmt->execute();
-        $history = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-        $stmt->close();
-
-        $historyForModel = array_map(fn($m) => [
+        // Fetch recent chat history for context
+        $chatHistory = self::getChat($today, null, $assistantMsg['created_at'], 15);
+        $history = array_map(fn($m) => [
             'role' => $m['role'],
             'content' => $m['message']
-        ], $history);
+        ], $chatHistory);
 
-        // Call the model for a new response
-        $response = GroqController::callModel('responder_prompts.txt', $historyForModel);
-
+        // Call the AI model to generate a new response
+        $response = GroqController::callModel('responder_prompts.txt', array_reverse($history));
         if (empty($response)) {
+            http_response_code(500);
             throw new Exception('Failed to generate a response from the AI model');
         }
 
-        // Update the message in the database
+        // Update the original message with the new response
         $stmt = $db->prepare('UPDATE chat_messages SET message = ? WHERE id = ? AND user_id = ?');
         $stmt->bind_param('sii', $response, $messageId, $user['id']);
         $stmt->execute();
         $stmt->close();
 
+        // Return the new message as a response
         return [
             'success' => true,
             'message' => $response
