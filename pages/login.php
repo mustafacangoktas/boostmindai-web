@@ -130,6 +130,7 @@ if (AuthController::isAuthenticated()) {
                         })
                             .then(res => res.json())
                             .then(data => {
+                                grecaptcha.reset();
                                 captchaModal.hide();
                                 if (data.success) {
                                     window.location.href = '/chat';
