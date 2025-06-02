@@ -18,14 +18,14 @@ function renderHead($title, $description, $keywords): void
     echo '<meta name="author" content="mustafacan.dev">';
     echo '<meta property="og:title" content="' . $title . '">';
     echo '<meta property="og:description" content="' . $description . '">';
-    echo '<meta property="og:image" content="/assets/img/branding/favicon.ico">';
+    echo '<meta property="og:image" content="/assets/img/branding/logo.png">';
     echo '<meta property="og:url" content="https://boostmindai.mustafacan.dev">';
     echo '<meta property="og:type" content="website">';
     echo '<meta property="og:site_name" content="boostmindai.mustafacan.dev">';
     echo '<meta name="twitter:card" content="summary_large_image">';
     echo '<meta name="twitter:title" content="' . $title . '">';
     echo '<meta name="twitter:description" content="' . $description . '">';
-    echo '<meta name="twitter:image" content="/assets/img/favicon.ico">';
+    echo '<meta name="twitter:image" content="/assets/img/branding/logo.png">';
     echo '<meta name="twitter:site" content="@boostmindai.mustafacan.dev">';
     echo '<meta name="twitter:creator" content="@mustafacan.dev">';
     echo '<script defer>window.onload = function () { if (window.feather) feather.replace(); };</script>';
