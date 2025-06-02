@@ -5,12 +5,12 @@ use Core\Services\I18n;
 require_once 'includes/common/head.php';
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php I18n::getPreferredLanguage(); ?>">
 <head>
     <?php renderHead(
-        "BoostMindAI - Cookie Policy",
-        "Read the cookie policy for BoostMindAI, detailing how we use cookies and similar technologies to enhance your experience.",
-        "Cookie Policy, BoostMindAI, AI, Motivation, Chat"
+        t('cookies_page_title'),
+        t('cookies_page_description'),
+        t('cookies_page_keywords')
     ); ?>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="stylesheet" href="/assets/css/legal/index.css">

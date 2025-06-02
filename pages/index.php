@@ -6,10 +6,9 @@ include_once 'includes/common/head.php';
 
 <head>
     <?php renderHead(
-        "BoostMindAI - AI-Powered Motivation Chat",
-        "BoostMindAI is an AI-powered platform that provides 
-        motivation and support through empathetic conversations.",
-        "AI, Motivation, Chat, Support, Empathy"
+        t('home_page_title'),
+        t('home_page_description'),
+        t('home_page_keywords')
     ); ?>
     <link rel="stylesheet" href="/assets/css/home/index.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css"/>

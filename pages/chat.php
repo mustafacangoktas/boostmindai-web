@@ -3,6 +3,7 @@
 use Core\Controllers\ChatController;
 
 use Core\Controllers\AuthController;
+use Core\Services\I18n;
 
 include_once 'includes/common/head.php';
 
@@ -48,13 +49,12 @@ if (!isset($id)) {
 include_once 'includes/common/head.php';
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php echo I18n::getPreferredLanguage(); ?>">
 <head>
     <?php renderHead(
-        "BoostMindAI - AI-Powered Motivation Chat",
-        "BoostMindAI is an AI-powered platform that provides 
-        motivation and support through empathetic conversations.",
-        "AI, Motivation, Chat, Support, Empathy"
+        t('chat_page_title'),
+        t('chat_page_description'),
+        t('chat_page_keywords')
     ); ?>
     <link rel="stylesheet" href="/assets/css/chat/index.css">
     <link rel="stylesheet" href="/assets/css/auth/index.css">

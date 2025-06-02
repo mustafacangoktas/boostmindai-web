@@ -1,14 +1,17 @@
 <?php
+
+use Core\Services\I18n;
+
 http_response_code(404);
 include_once 'includes/common/head.php';
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php echo I18n::getPreferredLanguage(); ?>">
 <head>
     <?php renderHead(
-        "404 - Sayfa Bulunamadı",
-        "Aradığınız sayfa bulunamadı.",
-        "404, Sayfa Bulunamadı, Hata"
+        t('not_found_page_title'),
+        t('not_found_page_description'),
+        t('not_found_page_keywords')
     ); ?>
     <style>
         .error-container {

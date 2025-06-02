@@ -5,12 +5,12 @@ use Core\Services\I18n;
 require_once 'includes/common/head.php';
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php echo htmlspecialchars(I18n::getPreferredLanguage()); ?>">
 <head>
     <?php renderHead(
-        "BoostMindAI - Terms of Service",
-        "Read the terms of service for BoostMindAI, including user responsibilities, data privacy, and more.",
-        "Terms of Service, BoostMindAI, AI, Motivation, Chat"
+        t('terms_page_title'),
+        t('terms_page_description'),
+        t('terms_page_keywords')
     ); ?>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="stylesheet" href="/assets/css/legal/index.css">

@@ -1,6 +1,7 @@
 <?php
 
 use Core\Controllers\AuthController;
+use Core\Services\I18n;
 
 include_once 'includes/common/head.php';
 
@@ -10,12 +11,12 @@ if (AuthController::isAuthenticated()) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="<?php echo I18n::getPreferredLanguage(); ?>">
 <head>
     <?php renderHead(
-        "Login - BoostMindAI",
-        "Login to your BoostMindAI account.",
-        "Login, Sign In, AI, Motivation, Chat"
+        t('login_page_title'),
+        t('login_page_description'),
+        t('login_page_keywords')
     ); ?>
     <link rel="stylesheet" href="/assets/css/auth/index.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
