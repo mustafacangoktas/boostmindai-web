@@ -96,4 +96,6 @@ return [
     'settings_modal_new_password_mismatch' => 'Passwörter stimmen nicht überein.',
     'settings_modal_save_success' => 'Einstellungen gespeichert.',
     'settings_modal_save_error' => 'Fehler beim Speichern. Bitte erneut versuchen.',
+    '404_message' => 'Seite nicht gefunden',
+    '404_back_home' => 'Zurück zur Startseite',
 ];

@@ -96,4 +96,6 @@ return [
     'settings_modal_new_password_mismatch' => 'Les mots de passe ne correspondent pas.',
     'settings_modal_save_success' => 'Paramètres enregistrés avec succès.',
     'settings_modal_save_error' => 'Erreur lors de l’enregistrement. Veuillez réessayer.',
+    '404_message' => 'Page non trouvée',
+    '404_back_home' => 'Retour à l’accueil',
 ];

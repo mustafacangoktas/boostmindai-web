@@ -96,4 +96,6 @@ return [
     'settings_modal_new_password_mismatch' => 'Yeni şifreler uyuşmuyor.',
     'settings_modal_save_success' => 'Ayarlar başarıyla kaydedildi.',
     'settings_modal_save_error' => 'Ayarlar kaydedilirken bir hata oluştu. Lütfen tekrar deneyin.',
+    '404_message' => 'Sayfa Bulunamadı',
+    '404_back_home' => 'Ana Sayfaya Dön',
 ];

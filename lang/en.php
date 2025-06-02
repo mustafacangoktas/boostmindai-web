@@ -96,5 +96,7 @@ return [
     'settings_modal_new_password_mismatch' => 'New passwords do not match.',
     'settings_modal_save_success' => 'Settings saved successfully.',
     'settings_modal_save_error' => 'An error occurred while saving settings. Please try again.',
+    '404_message' => 'Page Not Found',
+    '404_back_home' => 'Back to Home',
 ];
 
