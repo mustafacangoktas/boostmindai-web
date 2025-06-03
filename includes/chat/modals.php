@@ -46,7 +46,7 @@
 
                 <div class="mb-4 form-floating">
                     <input type="password" id="newPasswordRepeat" class="form-control"
-                            name="new_password_repeat"
+                           name="new_password_repeat"
                            placeholder="Repeat Password" minlength="8" maxlength="32"/>
                     <label for="newPasswordRepeat">
                         <?php echo t('settings_modal_new_password_repeat'); ?>
@@ -143,6 +143,11 @@
                     // Remove the item from the modal
                     const item = document.querySelector(`.favorite-message[data-message-id="${messageId}"]`);
                     if (item) item.remove();
+                    const wrapper = document.querySelector(`.chat__message__wrapper[data-message-id="${messageId}"]`);
+                    if (wrapper) {
+                        const starBtn = wrapper.querySelector('.star-btn');
+                        starBtn.classList.remove('favorite');
+                    }
                 } else {
                     alert(data.message || 'Failed to remove from favorites.');
                 }
