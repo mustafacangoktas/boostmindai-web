@@ -1,0 +1,32 @@
+server {
+    listen 80;
+    server_name {{your_domain}};
+
+    root {{project_root}};
+    index index.php;
+
+    access_log /var/log/nginx/{{project_name}}_access.log;
+    error_log /var/log/nginx/{{project_name}}_error.log;
+
+    location / {
+        rewrite ^ /index.php?$query_string last;
+    }
+
+    location = /index.php {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/{{php_version}}-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+
+    location ~* \.(?:css|js|jpg|jpeg|gif|png|ico|webp|svg|woff|woff2|ttf|eot)$ {
+        try_files $uri =404;
+        expires 30d;
+        access_log off;
+        add_header Cache-Control "public";
+    }
+
+    location ~ /\. {
+        deny all;
+    }
+}
