@@ -1,4 +1,13 @@
 <?php
+/**
+ * User Settings API Endpoint
+ *
+ * Handles user settings retrieval and updates, including name and password changes.
+ * Requires authentication and returns JSON responses.
+ *
+ * @package API\Auth
+ * @author Mustafa Can
+ */
 
 use Core\Controllers\AuthController;
 

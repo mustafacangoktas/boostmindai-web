@@ -4,8 +4,27 @@ namespace Core\Controllers;
 
 use Core\Database;
 
+/**
+ * Favorite Messages Controller
+ *
+ * Handles:
+ * - Adding a message to favorites
+ * - Removing a message from favorites
+ * - Listing favorite messages for the authenticated user
+ *
+ * This controller requires user authentication and interacts with the database
+ *
+ * @package Core\Controllers
+ */
 class FavoriteController
 {
+
+    /**
+     * Adds a message to the user's favorites.
+     *
+     * @param int $messageId The ID of the message to add to favorites.
+     * @return array An associative array indicating success or failure.
+     */
     public static function addFavorite(int $messageId): array
     {
         $user = AuthController::getCurrentUser();
@@ -22,6 +41,12 @@ class FavoriteController
         return ['success' => $success];
     }
 
+    /**
+     * Removes a message from the user's favorites.
+     *
+     * @param int $messageId The ID of the message to remove from favorites.
+     * @return array An associative array indicating success or failure.
+     */
     public static function removeFavorite(int $messageId): array
     {
         $user = AuthController::getCurrentUser();
@@ -38,6 +63,11 @@ class FavoriteController
         return ['success' => $success];
     }
 
+    /**
+     * Lists all favorite messages for the authenticated user.
+     *
+     * @return array An associative array containing the list of favorite messages.
+     */
     public static function listFavorites(): array
     {
         $user = AuthController::getCurrentUser();

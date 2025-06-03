@@ -1,4 +1,13 @@
 <?php
+/**
+ * Favorite Messages API Endpoint
+ *
+ * Handles user favorite messages, allowing users to list, add, and remove favorites.
+ * Requires user authentication and returns JSON responses.
+ *
+ * @package API\Favorites
+ * @author Mustafa Can
+ */
 
 use Core\Controllers\AuthController;
 use Core\Controllers\FavoriteController;

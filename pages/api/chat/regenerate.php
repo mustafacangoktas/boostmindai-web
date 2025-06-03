@@ -1,7 +1,16 @@
 <?php
+/**
+ * Chat Regeneration API Endpoint
+ *
+ * Handles regeneration of assistant messages for a specific chat message.
+ * Requires user authentication and expects a POST request with a valid message ID.
+ *
+ * @package API\Chat
+ * @author Mustafa Can
+ */
+
 use Core\Controllers\AuthController;
 use Core\Controllers\ChatController;
-use Core\Controllers\GroqController;
 
 header('Content-Type: application/json');
 AuthController::requireAuthentication();
