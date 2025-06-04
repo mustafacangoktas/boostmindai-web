@@ -120,7 +120,6 @@ To get a local copy up and running, follow these simple steps.
       `favorite_messages`.
 
 3. **Configure the application:**
-    * Rename `config.php.template` (or create `config.php` based on the template below) to `config.php`.
     * Update `config.php` with your database credentials, Google reCAPTCHA keys, and Groq API keys.
 
 4. **Set up your web server:**
@@ -131,8 +130,7 @@ To get a local copy up and running, follow these simple steps.
 
 5. **Permissions:**
     * Ensure your web server has write permissions for session storage if applicable, and any directories where files
-      might be uploaded or logs written (though this project doesn't seem to have explicit file uploads beyond session
-      data).
+      might be uploaded or logs written.
 
 ## Configuration
 
