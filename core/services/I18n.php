@@ -8,7 +8,6 @@ namespace Core\Services;
  * Handles detection and loading of language preferences and translation files.
  *
  * @package Core\Services
- * @author Mustafa Can
  */
 class I18n
 {

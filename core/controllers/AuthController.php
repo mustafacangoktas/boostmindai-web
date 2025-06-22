@@ -12,7 +12,6 @@ use Core\Database;
  * - Provides utilities for checking login status, current user, and logout
  *
  * @package Core\Controllers
- * @author Mustafa Can
  */
 class AuthController
 {

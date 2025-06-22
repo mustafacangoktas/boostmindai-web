@@ -6,8 +6,6 @@
  * - Registers basic autoloader
  * - Handles static assets
  * - Initializes router and dispatches the request
- *
- * @author Mustafa Can
  */
 
 $config = require __DIR__ . '/config.php';

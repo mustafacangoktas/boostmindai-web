@@ -6,7 +6,6 @@
  * - Sets the timezone based on the 'timezone' query parameter.
  *
  * @package API\Timezone
- * @author Mustafa Can
  */
 
 use Core\Controllers\AuthController;

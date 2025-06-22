@@ -7,7 +7,6 @@
  * Also includes reCAPTCHA validation to prevent automated abuse.
  *
  * @package API\Auth
- * @author Mustafa Can
  */
 
 use Core\Controllers\CaptchaController;

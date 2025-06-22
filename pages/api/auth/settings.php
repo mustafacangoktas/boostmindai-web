@@ -6,7 +6,6 @@
  * Requires authentication and returns JSON responses.
  *
  * @package API\Auth
- * @author Mustafa Can
  */
 
 use Core\Controllers\AuthController;

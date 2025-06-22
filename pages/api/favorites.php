@@ -6,7 +6,6 @@
  * Requires user authentication and returns JSON responses.
  *
  * @package API\Favorites
- * @author Mustafa Can
  */
 
 use Core\Controllers\AuthController;

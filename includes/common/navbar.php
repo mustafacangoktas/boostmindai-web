@@ -7,7 +7,6 @@ use Core\Services\I18n;
  * Displays the branding and a button to start a chat.
  *
  * @package Components
- * @author Mustafa Can
  */
 ?>
 <nav class="navbar d-flex justify-content-between align-items-center py-3">

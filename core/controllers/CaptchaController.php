@@ -12,7 +12,6 @@ namespace Core\Controllers;
  * If verification fails, it sends an error response and exits.
  *
  * @package Core\Controllers
- * @author Mustafa Can
  */
 class CaptchaController
 {

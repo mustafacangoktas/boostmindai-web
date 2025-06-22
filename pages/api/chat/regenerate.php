@@ -6,7 +6,6 @@
  * Requires user authentication and expects a POST request with a valid message ID.
  *
  * @package API\Chat
- * @author Mustafa Can
  */
 
 use Core\Controllers\AuthController;

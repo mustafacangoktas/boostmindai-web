@@ -6,7 +6,6 @@
  * Returns a JSON response indicating logout status.
  *
  * @package API\Auth
- * @author Mustafa Can
  */
 
 use Core\Controllers\AuthController;

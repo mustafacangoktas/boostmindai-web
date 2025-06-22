@@ -7,7 +7,6 @@
  * reCAPTCHA validation is required to prevent abuse.
  *
  * @package API\Auth
- * @author Mustafa Can
  */
 
 use Core\Controllers\CaptchaController;

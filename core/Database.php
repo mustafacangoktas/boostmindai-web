@@ -12,7 +12,6 @@ use mysqli;
  * - Provides a one-time setup for required tables (users & user_tokens)
  *
  * @package Core
- * @author Mustafa Can
  */
 class Database
 {

@@ -7,7 +7,6 @@
  *
  * @language tr
  * @package Language
- * @author Mustafa Can
  */
 
 return [

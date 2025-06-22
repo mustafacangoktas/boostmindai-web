@@ -7,7 +7,6 @@
  * - Limits the number of results returned (default: 10, max: 100).
  *
  * @package API\Chats
- * @author Mustafa Can
  */
 
 use Core\Controllers\AuthController;

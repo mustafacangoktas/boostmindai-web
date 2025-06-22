@@ -7,7 +7,6 @@
  * - POST: Adds a new message and returns a response from the AI model.
  *
  * @package API\Chat
- * @author Mustafa Can
  */
 header('Content-Type: application/json');
 

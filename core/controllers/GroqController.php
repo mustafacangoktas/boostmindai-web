@@ -18,7 +18,6 @@ use Exception;
  * - Sends a chat completion request and parses the response
  *
  * @package Core\Controllers
- * @author Mustafa Can
  */
 class GroqController
 {
@@ -83,6 +82,13 @@ class GroqController
         curl_close($ch);
 
         $data = json_decode($response, true);
+
+        if (!$data || !isset($data['choices'][0]['message']['content'])) {
+            // Fallback error message
+            error_log("Groq API error: " . json_last_error_msg() . " - Response: " . $response);
+            return I18n::translate('groq.error_fallback');
+        }
+
         return $data['choices'][0]['message']['content'];
     }
 }
